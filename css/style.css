@@ -1,0 +1,90 @@
+h1, h2, h3 {
+	color: purple;
+}
+
+h1 {
+	font-size: 4em;
+	font-family: 'Luckiest Guy', Arial, sans-serif;
+}
+
+#album_art {
+	background-color: purple;
+	color: white;
+}
+
+/* input#search {
+	background-color: #ccc;
+	color: #666;
+	margin-bottom: 3em;
+	width: 120%;
+	line-height: 2em;
+	border-radius: 1em;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-o-border-radius: 1em;
+	border: .15em solid #888;
+	padding: .5em;
+} */
+
+
+
+#container {
+	padding: 2em;
+}
+
+header {
+	margin-bottom: 4em;
+}
+
+aside {
+	float: right;
+	padding: 1em;
+}
+section {
+	margin-bottom: 15em;
+	float: left;
+}
+
+td, th {
+	padding: 1em 5em 1em 1em;
+	text-align: left;
+}
+
+#album_art {
+	width: 15em;
+	height: 15em;
+	padding: 1em;
+	text-align: center;
+	margin-top: 0;
+	border-radius: 1em;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-o-border-radius: 1em;
+}
+
+#audioplayer {
+	margin-top: 1em;
+	background-color: black;
+	border-radius: 1em;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-o-border-radius: 1em;
+	width: 40%;
+	line-height: 2em;
+	padding: .5em;
+}
+
+#audio_buttons {
+	float: left;
+}
+#song_name {
+	color: white;
+}
+
+.glyphicon {
+	color: white;
+}
+
+footer {
+	clear: both;
+}

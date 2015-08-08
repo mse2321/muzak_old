@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Muzak - Music the quick and easy way</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/app.js"></script>
+	</head>
+	<body>
+		<div class="container col-xs-12">
+			<header>
+				<h1>Muzak</h1>
+			</header>
+			<section class="col-xs-12 col-md-8">
+				<div id="search_form" class="input-group">
+					<input type="text" placeholder="Search for something?!" class="form-control" id="search"/>
+					<span class="input-group-btn">
+						<button type="button" id="submit" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+					</span>			
+				</div>
+				<div id="results">
+					<h2>Results</h2>
+					<table>
+							<tr>
+								<th>Artist</th> 
+								<th>Song</th>
+								<th>Album</th>
+							</tr>
+							<tr>
+								<td>
+									Someone
+								</td>
+								<td>
+									Some Song
+								</td>
+								<td>
+									Some Album
+								</td>
+								<td>
+									PLAY
+								</td>
+							</tr>
+					</table>
+				</div>
+			</section>
+			<aside id="album_player_section" class="col-xs-12 col-md-4">
+				<div id="album_art">
+					Album Art
+				</div>
+				<div id="audioplayer">
+					<audio></audio>
+					<div id="audio_buttons">
+					      <span class="glyphicon glyphicon-play"></span>
+					      <span class="glyphicon glyphicon-pause"></span>
+					      <span class="glyphicon glyphicon-stop"></span>
+					</div>
+					<div id="song_name">
+						Some Song
+					</div>
+				</div>
+			</aside>
+			<footer>
+				<small>&copy;2015 ME Innovation - Thinkful Project</small>
+			</footer>
+		</div>
+	</body>
+	</html>	
