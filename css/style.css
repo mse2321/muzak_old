@@ -1,10 +1,11 @@
 h1, h2, h3 {
 	color: purple;
+	font-family: 'Luckiest Guy', Arial, sans-serif;
 }
 
 h1 {
 	font-size: 4em;
-	font-family: 'Luckiest Guy', Arial, sans-serif;
+	margin-left: .5em;
 }
 
 #album_art {
@@ -12,21 +13,13 @@ h1 {
 	color: white;
 }
 
-/* input#search {
-	background-color: #ccc;
-	color: #666;
+#search_form {
 	margin-bottom: 3em;
-	width: 120%;
-	line-height: 2em;
-	border-radius: 1em;
-	-moz-border-radius: 1em;
-	-webkit-border-radius: 1em;
-	-o-border-radius: 1em;
-	border: .15em solid #888;
-	padding: .5em;
-} */
+}
 
-
+.input-group {
+	width: 45%;
+}
 
 #container {
 	padding: 2em;
@@ -41,8 +34,12 @@ aside {
 	padding: 1em;
 }
 section {
-	margin-bottom: 15em;
+	margin-bottom: 18em;
 	float: left;
+}
+
+table {
+	width: 100%;
 }
 
 td, th {
@@ -50,12 +47,17 @@ td, th {
 	text-align: left;
 }
 
+.fa-play-circle {
+	font-size: 2em;
+	color: purple;
+}
+
 #album_art {
 	width: 15em;
 	height: 15em;
 	padding: 1em;
 	text-align: center;
-	margin-top: 0;
+	margin: 0 auto;
 	border-radius: 1em;
 	-moz-border-radius: 1em;
 	-webkit-border-radius: 1em;
@@ -63,28 +65,47 @@ td, th {
 }
 
 #audioplayer {
-	margin-top: 1em;
+	margin: 1em auto;
 	background-color: black;
+	border: .2em solid #ccc;
 	border-radius: 1em;
 	-moz-border-radius: 1em;
 	-webkit-border-radius: 1em;
 	-o-border-radius: 1em;
-	width: 40%;
+	width: 18em;
 	line-height: 2em;
 	padding: .5em;
 }
 
 #audio_buttons {
-	float: left;
+	margin-right: 1em;
 }
 #song_name {
 	color: white;
 }
 
-.glyphicon {
+.glyphicon-play, .glyphicon-pause, .glyphicon-stop  {
 	color: white;
+	cursor: pointer;
+}
+
+.glyphicon-play-active, .glyphicon-pause-active, .glyphicon-stop-active, 
+.glyphicon-play:hover, .glyphicon-pause:hover, .glyphicon-stop:hover {
+	color: purple;
+	cursor: pointer;
 }
 
 footer {
 	clear: both;
+	padding-left: 1em;
+}
+
+
+@media screen and (max-width: 1000px) {
+	section {
+		margin-bottom: 0;
+	}
+	.input-group {
+		width: 100%;
+	}
 }
