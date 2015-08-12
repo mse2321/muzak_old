@@ -34,41 +34,6 @@ $(function(){
 		getResults(tags);
 	});
 
-
-// ************** code from stackerAJAX ****************
-
-	// this function takes the question object returned by StackOverflow 
-	// and creates new result to be appended to DOM
-	var showQuestion = function(question) {
-	
-	// clone our result template code
-	var result = $('.templates .question').clone();
-	//var resultAnswerers = $('.templates .question').clone();
-	
-	// Set the question properties in result
-	var questionElem = result.find('.question-text a');
-	questionElem.attr('href', question.link);
-	questionElem.text(question.title);
-
-	return result;
-	};
-
-	// this function takes the results object from StackOverflow
-	// and creates info about search results to be appended to DOM
-	var showSearchResults = function(query, resultNum) {
-		var results = resultNum + ' results for <strong>' + query;
-		return results;
-	};
-
-	// takes error string and turns it into displayable DOM element
-	var showError = function(error){
-		var errorElem = $('.templates .error').clone();
-		var errorText = '<p>' + error + '</p>';
-		errorElem.append(errorText);
-	};
-
-	// takes a string of semi-colon separated tags to be searched
-	// for on StackOverflow
 	var getResults = function(tags) {
 		
 		// the parameters we need to pass in our request to StackOverflow's API

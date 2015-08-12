@@ -50,6 +50,7 @@ td, th {
 .fa-play-circle {
 	font-size: 2em;
 	color: purple;
+	cursor: pointer;
 }
 
 #album_art {
@@ -89,8 +90,7 @@ td, th {
 	cursor: pointer;
 }
 
-.glyphicon-play-active, .glyphicon-pause-active, .glyphicon-stop-active, 
-.glyphicon-play:hover, .glyphicon-pause:hover, .glyphicon-stop:hover {
+.active, .glyphicon-play:hover, .glyphicon-pause:hover, .glyphicon-stop:hover {
 	color: purple;
 	cursor: pointer;
 }
