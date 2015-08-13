@@ -36,12 +36,11 @@ $(function(){
 
 	var getResults = function(tags) {
 		
-		// the parameters we need to pass in our request to StackOverflow's API
-		/* var q = {
+		 var q = {
 								name: 'korn',
-								type: 'artist, album, playlist, track'}; */
+								type: 'artist, album, playlist, track'};
 	
-		/*var result = $.ajax({
+		/* var result = $.ajax({
 			url: "https://api.spotify.com/v1/search",
 			data: q,
 			dataType: "jsonp",
@@ -54,7 +53,7 @@ $(function(){
 	  		method: 'GET',
 	  		})
 	  		.done(function (results) {
-	  		alert(JSON.stringify(results));
+	  		console.log(JSON.stringify(results));
 	  	});
 	  		encodeURI('marcus eubanks');
 
