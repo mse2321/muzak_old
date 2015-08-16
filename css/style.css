@@ -66,21 +66,12 @@ td, th {
 }
 
 #audioplayer {
-	margin: 1em auto;
-	background-color: black;
-	border: .2em solid #ccc;
-	border-radius: 1em;
-	-moz-border-radius: 1em;
-	-webkit-border-radius: 1em;
-	-o-border-radius: 1em;
+	margin: 12em auto 1em auto;
 	width: 18em;
 	line-height: 2em;
 	padding: .5em;
 }
 
-#audio_buttons {
-	margin-right: 1em;
-}
 #song_name {
 	color: white;
 }
@@ -93,6 +84,10 @@ td, th {
 .active, .glyphicon-play:hover, .glyphicon-pause:hover, .glyphicon-stop:hover {
 	color: purple;
 	cursor: pointer;
+}
+
+header > p {
+	margin-left: 1.1em;
 }
 
 footer {
