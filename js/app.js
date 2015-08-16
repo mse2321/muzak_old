@@ -30,43 +30,28 @@ $(function(){
 		// zero out results if previous search has run
 		$('.results').html('');
 		// get the value of the tags the user submitted
-		var tags = $(this).find("input[name='tags']").val();
-		getResults(tags);
+		var artistName = $('#search').val();
+		getResults(artistName);
 	});
 
-	var getResults = function(tags) {
+	var getResults = function(artistName) {
 		
-		 var q = {
-								name: 'korn',
-								type: 'artist, album, playlist, track'};
-	
-		/* var result = $.ajax({
-			url: "https://api.spotify.com/v1/search",
-			data: q,
-			dataType: "jsonp",
-			type: "GET",
-			}) */
+		var q = {
+								name: artistName,
+								type: 'artist'};
 
+		var nameURL = encodeURI(q.name);
 		
 		$.ajax({
-	 	 	url: 'https://api.spotify.com/v1/search?q=name:' + 'korn' + '&type=' + 'track',
+	 	 	url: 'https://api.spotify.com/v1/search?q=' + nameURL + '&type=' + q.type,
 	  		method: 'GET',
 	  		})
 	  		.done(function (results) {
-	  		console.log(JSON.stringify(results));
+	  		//console.log(JSON.stringify(results));
+	  		$('#resultsData').html("<td>" + (JSON.stringify(results)) + "</td>");
 	  	});
-	  		encodeURI('marcus eubanks');
 
-		/* .done(function(result){
-			var searchResults = showSearchResults(request.tagged, result.items.length);
-
-			$('.search-results').html(searchResults);
-
-			$.each(result.items, function(i, item) {
-				var question = showQuestion(item);
-				$('.results').append(question);
-			});
-		})
+		/*
 		.fail(function(jqXHR, error, errorThrown){
 			var errorElem = showError(error);
 			$('.search-results').append(errorElem);
