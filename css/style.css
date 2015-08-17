@@ -8,6 +8,7 @@ h1 {
 	margin-left: .5em;
 }
 
+
 #album_art {
 	background-color: purple;
 	color: white;
@@ -34,7 +35,7 @@ aside {
 	padding: 1em;
 }
 section {
-	margin-bottom: 18em;
+	margin-bottom: 2em;
 	float: left;
 }
 
@@ -98,9 +99,13 @@ footer {
 
 @media screen and (max-width: 1000px) {
 	section {
-		margin-bottom: 0;
+		margin-bottom: 1em;
 	}
-	.input-group {
+	.input-group, tr, td, th {
 		width: 100%;
 	}
+	th {
+		padding: 0;
+	}
+
 }
