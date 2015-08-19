@@ -56,26 +56,29 @@ td, th {
 	cursor: pointer;
 }
 
-#album_art {
+#controlsDisplay {
 	width: 15em;
-	height: 15em;
+	height: 4em;
 	padding: 1em;
-	text-align: center;
+	text-align: left;
 	margin: 0 auto;
-	border-radius: 1em;
-	-moz-border-radius: 1em;
-	-webkit-border-radius: 1em;
-	-o-border-radius: 1em;
+	font-size: 1.5em;
+	border-radius: 2em;
+	-moz-border-radius: 2em;
+	-webkit-border-radius: 2em;
+	-o-border-radius: 2em;
+	background-color: black;
+	border: .4em solid purple;
 }
 
 #audioplayer {
-	margin: 11em auto 1em auto;
+	margin: -1.2em auto 1em auto;
 	width: 18em;
 	line-height: 2em;
 	padding: .5em;
 }
 
-#song_name {
+#displaySongName {
 	color: white;
 }
 
@@ -108,6 +111,22 @@ footer {
 	}
 	th {
 		padding: 0;
+	}
+	#audioplayer {
+		margin-top: -59.5em;
+	}
+	h1 {
+		margin-bottom: .2em;
+	}
+	audio {
+		width: 90%;
+	}
+	#search_form {
+		margin: 2em auto;
+	}
+	footer {
+		text-align: center;
+		padding-left: 0;
 	}
 
 }

@@ -5,12 +5,10 @@ $(function(){
 	$("#audioplayer, #results").css("display", "none");
 
 	//Search Submission Handler
-	$('#submit').click(SendArtistData); 
-
+	$('#submit').click(SendArtistData);
 
 	function SendArtistData() {
 		var artistName = $('#search').val(); // get the value of the tags the user submitted
-		console.log(artistName);
 
 		if(submissions === 0) {
 			findArtist(artistName);
@@ -69,16 +67,17 @@ $(function(){
 
 	// need to figure out how to play the individual files within Muzak
 	function playSongs(trackURL) {
+
 		$(".fa-play-circle").each(function(){
-		  	$(this).on("click", function() {
-				console.log(trackURL);
+		  	$(this).on("click", function() {			
 		  		$("source").attr("src", trackURL); //Need to be able to remove spaces from url when request is sent to retrieve file
-				$("#audioplayer").css("display", "block");
 				$("audio").load();
 				$("audio").trigger('play');
+				$("#audioplayer").css("display", "block");
 				$(this)[0].cells[1].innerText;
 			});
 		});
 	}
+
 
 });
