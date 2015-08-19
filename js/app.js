@@ -1,6 +1,6 @@
 $(function(){
 
-	//$("#audioplayer, #results").css("display", "none");
+	$("#audioplayer, #results").css("display", "none");
 
 	$('#submit').click( function(event){
 		// zero out results if previous search has run
@@ -48,7 +48,7 @@ $(function(){
 	  			var trackURL = JSON.stringify(results2.tracks[i].preview_url).replace(/\"/g, "");
 
 		  		$('#resultsHeadings').after("<tr>" + "<td>" + JSON.stringify(results2.tracks[i].name).replace(/\"/g, "") + "</td>"
-		  		+ "<td>" + JSON.stringify(results2.tracks[i].album.name).replace(/\"/g, "") + "</td>" +	"<td><i class='fa fa-play-circle'></i></td></tr>");
+		  		+ "<td>" + JSON.stringify(results2.tracks[i].album.name).replace(/\"/g, "") + "</td>" +	"<td class='hidden'>" + trackURL + "</td>" + "<td><i class='fa fa-play-circle'></i></td></tr>");
 		  		playSongs(trackURL);
 	  		}
 	  		
@@ -61,14 +61,14 @@ $(function(){
 
 	// need to figure out how to play the individual files within Muzak
 	function playSongs(trackURL) {
-		$(".table").each(function(){
-		  	$(this).on("click", "tr", function() {
+		$(".fa-play-circle").each(function(){
+		  	$(this).on("click", function() {
 				console.log(trackURL);
 		  		$("source").attr("src", trackURL); //Need to be able to remove spaces from url when request is sent to retrieve file
-				//$("#audioplayer").css("display", "block");
+				$("#audioplayer").css("display", "block");
 				$("audio").load();
 				$("audio").trigger('play');
-
+				$(this)[0].cells[1].innerText;
 			});
 		});
 	}

@@ -8,7 +8,9 @@ h1 {
 	margin-left: .5em;
 }
 
-
+.hidden {
+	display: none;
+}
 #album_art {
 	background-color: purple;
 	color: white;
