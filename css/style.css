@@ -113,10 +113,14 @@ footer {
 		padding: 0;
 	}
 	#audioplayer {
-		margin-top: -59.5em;
+		margin-top: -68.5em;
 	}
 	h1 {
 		margin-bottom: .2em;
+	}
+	aside {
+		float: none;
+		width: 100%;
 	}
 	audio {
 		width: 90%;
