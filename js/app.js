@@ -1,14 +1,24 @@
 $(function(){
+	var submissions = 0;
 
+	//On load hiding the audio play and results table
 	$("#audioplayer, #results").css("display", "none");
 
-	$('#submit').click( function(event){
-		// zero out results if previous search has run
-		$('.results').html('');
-		// get the value of the tags the user submitted
-		var artistName = $('#search').val();
-		findArtist(artistName);
-	});
+	//Search Submission Handler
+	$('#submit').click(SendArtistData); 
+
+
+	function SendArtistData() {
+		var artistName = $('#search').val(); // get the value of the tags the user submitted
+		console.log(artistName);
+
+		if(submissions === 0) {
+			findArtist(artistName);
+		} else {
+			location.reload();
+		}
+		++submissions;
+	}
 
 	var findArtist = function(artistName) {
 		
@@ -21,8 +31,6 @@ $(function(){
 	  		}
 	  	})
 	  	.done(function (results1) {
-
-	  		console.log(JSON.stringify(results1.artists.items[0].name));
 	  		getSongs(results1);
 	  	})
 	  	.fail(function(jqXHR, error, errorThrown){
@@ -47,14 +55,14 @@ $(function(){
 	  		for(i = 0; i < 11; i++) {
 	  			var trackURL = JSON.stringify(results2.tracks[i].preview_url).replace(/\"/g, "");
 
-		  		$('#resultsHeadings').after("<tr>" + "<td>" + JSON.stringify(results2.tracks[i].name).replace(/\"/g, "") + "</td>"
+		  		$('#resultsHeadings').after("<tr class='tracks'>" + "<td>" + JSON.stringify(results2.tracks[i].name).replace(/\"/g, "") + "</td>"
 		  		+ "<td>" + JSON.stringify(results2.tracks[i].album.name).replace(/\"/g, "") + "</td>" +	"<td class='hidden'>" + trackURL + "</td>" + "<td><i class='fa fa-play-circle'></i></td></tr>");
 		  		playSongs(trackURL);
 	  		}
 	  		
 	  	})
 	  	.fail(function(jqXHR, error, errorThrown){
-			alert("Something went wrong! - " + errorThrown);
+			alert("Please type in an artist's name.");
 		});
 
 	};
