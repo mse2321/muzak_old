@@ -1,136 +1,50 @@
-h1, h2, h3 {
-	color: purple;
-	font-family: 'Luckiest Guy', Arial, sans-serif;
-}
 
-h1 {
-	font-size: 4em;
-	margin-left: .5em;
-}
+body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; }
 
-.hidden {
-	display: none;
-}
-#album_art {
-	background-color: purple;
-	color: white;
-}
+h1, h2, h3 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; }
 
-#search_form {
-	margin-bottom: 3em;
-}
+h1 { font-size: 4em; margin-left: .5em; }
 
-.input-group {
-	width: 45%;
-}
+.hidden { display: none; }
 
-#container {
-	padding: 2em;
-}
+#search_form { margin-bottom: 3em; }
 
-header {
-	margin-bottom: 4em;
-}
+.input-group { width: 45%; }
 
-aside {
-	float: right;
-	padding: 1em;
-}
-section {
-	margin-bottom: 2em;
-	float: left;
-}
+#content_wrap { padding: 2em; background-color: rgba(0, 0, 0, 0.6); }
 
-table {
-	width: 100%;
-}
+a { color: #26C6DA; }
 
-td, th {
-	padding: 1em 5em 1em 1em;
-	text-align: left;
-}
+header { margin-bottom: 4em; }
 
-.fa-play-circle {
-	font-size: 2em;
-	color: purple;
-	cursor: pointer;
-}
+aside { float: right; padding: 1em; }
 
-#controlsDisplay {
-	width: 15em;
-	height: 4em;
-	padding: 1em;
-	text-align: left;
-	margin: 0 auto;
-	font-size: 1.5em;
-	border-radius: 2em;
-	-moz-border-radius: 2em;
-	-webkit-border-radius: 2em;
-	-o-border-radius: 2em;
-	background-color: black;
-	border: .4em solid purple;
-}
+section { margin-bottom: 2em; float: left; }
 
-#audioplayer {
-	margin: -1.2em auto 1em auto;
-	width: 18em;
-	line-height: 2em;
-	padding: .5em;
-}
+table { width: 100%; }
 
-#displaySongName {
-	color: white;
-}
+#resultsHeadings { background-color: #78909C; }
 
-.glyphicon-play, .glyphicon-pause, .glyphicon-stop  {
-	color: white;
-	cursor: pointer;
-}
+td, th { padding: 1em 5em 1em 1em; text-align: left; }
 
-.active, .glyphicon-play:hover, .glyphicon-pause:hover, .glyphicon-stop:hover {
-	color: purple;
-	cursor: pointer;
-}
+.fa-play-circle { font-size: 2em; color: #26C6DA; cursor: pointer; }
 
-header > p {
-	margin-left: 1.1em;
-}
+#audioplayer { margin: -1.2em auto 1em auto; width: 18em; line-height: 2em; padding: .5em; }
 
-footer {
-	clear: both;
-	padding-left: 1em;
-}
+header > p { margin-left: 1.1em; }
+
+footer { clear: both; padding-left: 1em; }
 
 
 @media screen and (max-width: 1000px) {
-	section {
-		margin-bottom: 1em;
-	}
-	.input-group, tr, td, th {
-		width: 100%;
-	}
-	th {
-		padding: 0;
-	}
-	#audioplayer {
-		margin-top: -68.5em;
-	}
-	h1 {
-		margin-bottom: .2em;
-	}
-	aside {
-		float: none;
-		width: 100%;
-	}
-	audio {
-		width: 90%;
-	}
-	#search_form {
-		margin: 2em auto;
-	}
-	footer {
-		text-align: center;
-		padding-left: 0;
-	}
 
+	section { margin-bottom: 1em; }
+	.input-group, tr, td, th { width: 100%; }
+	th { padding: 0; }
+	#audioplayer { margin-top: -68.5em; }
+	h1 { margin-bottom: .2em; }
+	aside { float: none; width: 100%; }
+	audio { width: 90%; }
+	#search_form { margin: 2em auto; }
+	footer { text-align: center; padding-left: 0; }
 }
