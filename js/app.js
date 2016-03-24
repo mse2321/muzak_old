@@ -2,7 +2,7 @@ $(function(){
 	var submissions = 0;
 
 	//On load hiding the audio play and results table
-	$("#audioplayer, #results").css("display", "none");
+	$("#results").css("display", "none");
 
 	//Search Submission Handler
 	$('#submit').click(SendArtistData);
@@ -30,6 +30,7 @@ $(function(){
 	  	})
 	  	.done(function (results1) {
 	  		getSongs(results1);
+	  		console.log('results1' + results1);
 	  	})
 	  	.fail(function(jqXHR, error, errorThrown){
 			alert("Something went wrong! - " + errorThrown);
@@ -49,6 +50,8 @@ $(function(){
 	  	})
 	  	.done(function (results2) {
 	  		$("#results").css("display", "block");
+
+	  		console.log('results2' + results2);
 
 	  		for(i = 0; i < 11; i++) {
 	  			var trackURL = JSON.stringify(results2.tracks[i].preview_url).replace(/\"/g, "");

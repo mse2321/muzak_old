@@ -1,5 +1,5 @@
 
-body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; }
+body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; }
 
 h1, h2, h3 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; }
 
@@ -17,19 +17,43 @@ a { color: #26C6DA; }
 
 header { margin-bottom: 4em; }
 
-aside { float: right; padding: 1em; }
+#album_player_section { float: right; padding-left: 150px; }
+
+.tracks:hover { background-color: #8E24AA; } 
 
 section { margin-bottom: 2em; float: left; }
 
-table { width: 100%; }
+small { color: #bbb; }
 
-#resultsHeadings { background-color: #78909C; }
+table { width: 100%; background-color: rgba(100, 100, 100, 0.2); }
+
+#resultsHeadings { background-color: #455A64; }
 
 td, th { padding: 1em 5em 1em 1em; text-align: left; }
 
+th { font-size: 18px; color: #B0BEC5;}
+
 .fa-play-circle { font-size: 2em; color: #26C6DA; cursor: pointer; }
 
-#audioplayer { margin: -1.2em auto 1em auto; width: 18em; line-height: 2em; padding: .5em; }
+#audioPlayer_wrap { margin: 0 auto 1em auto; text-align: center; }
+
+#audioPlayer { background-color: #757575; border: 5px solid #616161; color: white; border-radius: 15px; width: 22.2em; line-height: 2em; }
+
+.album_art { height: 300px; width: 300px; background-color: #8E24AA; border-radius: 10px 10px 0 0; }
+
+#song_name_display { background-color: black; padding: 5px; margin: 10px 0; font-size: 20px; }
+
+#song_name_display p { padding: 0; margin: 0; font-family: 'Roboto', sans-serif; }
+
+#controls_wrap { background: linear-gradient(#9e9e9e, #fafafa, #9e9e9e); padding: 10px; border-radius: 0 0 10px 10px; }
+
+.control_button { padding: 0 30px; color: black; font-size: 30px; }
+
+.control_button:hover { color: #26C6DA; }
+
+.active { color: #8E24AA; }
+
+#mobile_back { display: none; }
 
 header > p { margin-left: 1.1em; }
 
@@ -37,14 +61,22 @@ footer { clear: both; padding-left: 1em; }
 
 
 @media screen and (max-width: 1000px) {
-
+	
+	#content_wrap { width: 100%; padding: 0; }
 	section { margin-bottom: 1em; }
 	.input-group, tr, td, th { width: 100%; }
 	th { padding: 0; }
-	#audioplayer { margin-top: -68.5em; }
-	h1 { margin-bottom: .2em; }
-	aside { float: none; width: 100%; }
+	#audioPlayer { margin-top: 5em; width: 100%; border: none; }
+	#audioPlayer_wrap { width: 100%; }
+	#controls_wrap, .album_art, #audioPlayer { border-radius: 0; }
+	#song_name_display { padding: 10px; margin: 5px 0; }
+	.album_art { width: 100%; background-color: #ccc;}
+	h1 { margin-bottom: .2em; margin-left: 0; margin-top: 0; }
+	header { text-align: center; padding: 20px; margin-bottom: 0; }
+	header p { margin-left: 0; }
+	aside { float: none; width: 100%; padding: 0; }
 	audio { width: 90%; }
+	#mobile_back { display: block; background-color: #8E24AA; color: white; }
 	#search_form { margin: 2em auto; }
 	footer { text-align: center; padding-left: 0; }
 }
