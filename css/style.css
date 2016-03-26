@@ -1,9 +1,9 @@
 
-body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; }
+body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; position: absolute; bottom: 0; top: 0; left: 0; right: 0; width: 100%; }
 
-h1, h2, h3 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; }
+h1 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; font-size: 4em; margin-left: .5em; }
 
-h1 { font-size: 4em; margin-left: .5em; }
+h2 { color: #ccc; }
 
 .hidden { display: none; }
 
@@ -11,7 +11,7 @@ h1 { font-size: 4em; margin-left: .5em; }
 
 .input-group { width: 45%; }
 
-#content_wrap { padding: 2em; background-color: rgba(0, 0, 0, 0.6); }
+#content_wrap { padding: 2em; background-color: rgba(0, 0, 0, 0.6); position: relative; min-height: 100%; }
 
 a { color: #26C6DA; }
 
@@ -19,25 +19,29 @@ header { margin-bottom: 4em; }
 
 #album_player_section { float: right; padding-left: 150px; }
 
+.album { color: #26C6DA; font-size: 16px; }
+
 .tracks:hover { background-color: #8E24AA; } 
 
 section { margin-bottom: 2em; float: left; }
 
 small { color: #bbb; }
 
-table { width: 100%; background-color: rgba(100, 100, 100, 0.2); }
+table { width: 70%; background-color: rgba(100, 100, 100, 0.2); }
 
-#resultsHeadings { background-color: #455A64; }
+td { padding: 1em ; text-align: left; }
 
-td, th { padding: 1em 5em 1em 1em; text-align: left; }
+.tracks { border-top: 2px solid #ccc; border-bottom: 2px solid #ccc; }
 
-th { font-size: 18px; color: #B0BEC5;}
+audio { display: none; }
 
 .fa-play-circle { font-size: 2em; color: #26C6DA; cursor: pointer; }
 
+.play_button { text-align: right; }
+
 #audioPlayer_wrap { margin: 0 auto 1em auto; text-align: center; }
 
-#audioPlayer { background-color: #757575; border: 5px solid #616161; color: white; border-radius: 15px; width: 22.2em; line-height: 2em; }
+#audioPlayer { background-color: #616161; border: 5px solid #616161; color: white; border-radius: 15px; width: 22.2em; line-height: 2em; display: none; }
 
 .album_art { height: 300px; width: 300px; background-color: #8E24AA; border-radius: 10px 10px 0 0; }
 
@@ -47,7 +51,7 @@ th { font-size: 18px; color: #B0BEC5;}
 
 #controls_wrap { background: linear-gradient(#9e9e9e, #fafafa, #9e9e9e); padding: 10px; border-radius: 0 0 10px 10px; }
 
-.control_button { padding: 0 30px; color: black; font-size: 30px; }
+.control_button { padding: 0 30px; color: black; font-size: 30px; cursor: pointer; }
 
 .control_button:hover { color: #26C6DA; }
 
@@ -57,26 +61,29 @@ th { font-size: 18px; color: #B0BEC5;}
 
 header > p { margin-left: 1.1em; }
 
-footer { clear: both; padding-left: 1em; }
+footer { clear: both; padding-left: 1em; position: absolute; bottom: 0.8em; color: #ccc; padding-top: 40px; }
 
 
 @media screen and (max-width: 1000px) {
 	
 	#content_wrap { width: 100%; padding: 0; }
 	section { margin-bottom: 1em; }
-	.input-group, tr, td, th { width: 100%; }
-	th { padding: 0; }
-	#audioPlayer { margin-top: 5em; width: 100%; border: none; }
-	#audioPlayer_wrap { width: 100%; }
+	.input-group, tr, td, #audioPlayer_wrap { width: 100%; }
+	#audioPlayer { margin-top: 0; width: 100%; border: none; border-top: 5px solid #616161; } { width: 100%; }
 	#controls_wrap, .album_art, #audioPlayer { border-radius: 0; }
+	#album_player_section { float: right; padding-left: 0; padding-right: 0; }
 	#song_name_display { padding: 10px; margin: 5px 0; }
-	.album_art { width: 100%; background-color: #ccc;}
+	.album_art { width: 100%; background-color: #ccc; height: 100%; }
 	h1 { margin-bottom: .2em; margin-left: 0; margin-top: 0; }
+	h2 { text-align: center; }
 	header { text-align: center; padding: 20px; margin-bottom: 0; }
 	header p { margin-left: 0; }
+	table { width: 100%; }
 	aside { float: none; width: 100%; padding: 0; }
 	audio { width: 90%; }
-	#mobile_back { display: block; background-color: #8E24AA; color: white; }
+	#mobile_back { display: block; background-color: #8E24AA; color: white; cursor: pointer; font-size: 18px; padding: 10px; font-weight: bold; }
+	#mobile_back p { margin: 0; }
+	#mobile_back p:hover { color: #26C6DA; }
 	#search_form { margin: 2em auto; }
-	footer { text-align: center; padding-left: 0; }
+	footer { position: relative; text-align: center; padding-left: 0; }
 }
