@@ -1,91 +1,89 @@
-$(function(){
-	var submissions = 0;
+var demo = angular.module('demo', []);
 
-	//On load hiding the audio play and results table
-	$("#results").css("display", "none");
+	demo.controller('ctrl', function($scope){
+		$scope.submissions = 0;
 
-	//Search Submission Handler
-	$('#submit').click(SendArtistData);
+		$scope.sendArtistData = function() {
+			$scope.artistName = $('#search').val(); // get the value of the tags the user submitted
 
-	function SendArtistData() {
-		var artistName = $('#search').val(); // get the value of the tags the user submitted
+			if($scope.submissions === 0) {
+				$scope.findArtist($scope.artistName);
+				$scope.hideInstructions();
+			} else {
+				location.reload();
+			}
+			++$scope.submissions;
+		};
 
-		if(submissions === 0) {
-			findArtist(artistName);
-			hideInstructions();
-		} else {
-			location.reload();
-		}
-		++submissions;
+		$scope.hideInstructions = function() {
+			$("header > p").hide();
 
-	}
+			if ( $(window).width() < 1000) {
+				$("#search_form").css("margin", "0 auto 2em auto");
+			}
+		};
 
-	function hideInstructions() {
-		$("header > p").hide();
-
-		if ( $(window).width() < 1000) {
-			$("#search_form").css("margin", "0 auto 2em auto");
-		}
-	}
-
-	var findArtist = function(artistName) {
+		$scope.findArtist =  function(artistName) {
 		
-		// need to figure out how to get the ID from Spotify that matches the artist name the user types in
-		$.ajax({
-	 	 	url: 'https://api.spotify.com/v1/search/',
-	 	 	data: {
-		  		q: artistName,
-		  		type: "artist"
-	  		}
-	  	})
-	  	.done(function (results) {
-	  		getSongs(results);
-	  	})
-	  	.fail(function(jqXHR, error, errorThrown){
-			alert("Something went wrong! - " + errorThrown);
-		});
+			$.ajax({
+		 	 	url: 'https://api.spotify.com/v1/search/',
+		 	 	data: {
+			  		q: artistName,
+			  		type: "artist"
+		  		}
+		  	})
+		  	.done(function (results) {
+		  		$scope.getSongs(results);
+		  	})
+		  	.fail(function(jqXHR, error, errorThrown){
+				alert("Something went wrong! - " + errorThrown);
+			});
 
-	};
+		};
 
-	function getSongs(results) {
+		$scope.getSongs = function(results) {
 				
-		// need to figure out how to get the ID from Spotify that matches the artist name the user types in
-		$.ajax({
-	 	 	url: 'https://api.spotify.com/v1/artists/' + results.artists.items[0].id + '/top-tracks?country=US',
-	  		method: 'GET',
-	  	})
-	  	.done(function (results) {
-	  		$("#results").css("display", "block");
+			$.ajax({
+		 	 	url: 'https://api.spotify.com/v1/artists/' + results.artists.items[0].id + '/top-tracks?country=US',
+		  		method: 'GET',
+		  	})
+		  	.done(function (results) {
 
-	  		for(i = 0; i < 10; i++) {
-	  			var trackURL = results.tracks[i].preview_url;
-	  			//var trackURL = JSON.stringify(results.tracks[i].preview_url).replace(/\"/g, "");
-	  			if($(window).width() < 1000) {
-	  				var albumArt = results.tracks[i].album.images[0].url;
-	  			} else {
-	  				var albumArt = results.tracks[i].album.images[1].url;
-	  			}
+		  		$scope.data = results;
+		  		$scope.tracks_list = [];
 
-	  			var songName = results.tracks[i].name;
-	  			var albumName = results.tracks[i].album.name;
+		  		for(i = 0; i < 10; i++) {
 
-				$('#resultsHeadings').after("<tr class='tracks'>" + "<td>" + songName + "</td>" + "<td class='hidden'>" + trackURL + "</td>" + "<td class='play_button'><i class='fa fa-play-circle'></i></td></tr>");  
+		  			$scope.songName = $scope.data.tracks[i].name;
+		  			$scope.albumArt = $scope.data.tracks[i].album.images[1].url;
+		  			$scope.track_url = $scope.data.tracks[i].preview_url;
+		  			$scope.albumName = $scope.data.tracks[i].album.name;
+		  			
+		  			$scope.track_item = {
+						name: $scope.songName,
+						albumName: $scope.albumName,
+						track_url: $scope.track_url,
+						albumArt: $scope.albumArt
+					}; 
 
-				playSongs(trackURL, albumArt, songName, albumName);
-				showPlayer();
-		  		hidePlayer();	
-		  		pauseSongs();
-		  		replaySongs();
-	  		}
-	  		
-	  	})
-	  	.fail(function(jqXHR, error, errorThrown){
-			alert("Please type in an artist's name.");
-		});
+					$scope.tracks_list.push($scope.track_item);
 
-	};
+		  		};
+				/* $scope.playSongs($scope.track_url, $scope.albumArt, $scope.songName, $scope.albumName);
+				$scope.showPlayer();
+			  	$scope.hidePlayer();	
+			  	$scope.pauseSongs();
+			  	$scope.replaySongs(); */
+		  		
+		  	})
+		  	.fail(function(jqXHR, error, errorThrown){
+				alert("Please type in an artist's name.");
+			});
+			console.log($scope.tracks_list);
 
-	function showPlayer() {
+		};
+
+	$scope.showPlayer = function() {
 
 		$(".fa-play-circle").click(function(){
 			$("#audioPlayer").show("slide", { direction: "right" });
@@ -97,9 +95,9 @@ $(function(){
 			$("header").css("padding", "20px 20px 0px 20px");
 		});
 
-	}
+	};
 
-	function hidePlayer() {
+	$scope.hidePlayer = function() {
 
 		$("#mobile_back > p").click(function(){
 			$("#audioPlayer").hide("slide", { direction: "right" });
@@ -111,30 +109,24 @@ $(function(){
 			$("header").css("padding", "20px");
 		});
 
-	}
+	};
 
-	function playSongs(trackURL, albumArt, songName, albumName) {
+	$scope.playSongs = function(track_url, albumArt, songName, albumName) {
 
-			  			console.log(trackURL);
+		console.log(track_url);
 
-		$("tr").each(function(){
-		  	$(this).on("click", function() {			
-		  		$("source").attr("src", trackURL);
-		  		$(".album_art").attr('src', albumArt);
-		  		$("#song_name_display").html("<p>" + songName + "</p><p class='album'>" + albumName + "</p>");
-				$("audio").load();
-				//console.log('Results: ' + ($(this).html()));
-				$("audio").trigger('play');
-				$(".fa-pause").removeClass("active");
-				$(".fa-play").addClass("active");
-				$(this).cells[1].text();
+		$("source").attr("src", track_url);
+		$(".album_art").attr('src', albumArt);
+		$("#song_name_display").html("<p>" + songName + "</p><p class='album'>" + albumName + "</p>");
+		$("audio").load();
+		$("audio").trigger('play');
+		$(".fa-pause").removeClass("active");
+		$(".fa-play").addClass("active");
+		//$(this).track.track_url;
 
-			});
-		});
+	};
 
-	}
-
-	function pauseSongs() {
+	$scope.pauseSongs = function() {
 
 		$(".fa-pause").on("click", function() {
 			$(".fa-play").removeClass("active");
@@ -142,9 +134,9 @@ $(function(){
 			$("audio").trigger('pause');
 		});
 
-	}
+	};
 
-	function replaySongs() {
+	$scope.replaySongs = function() {
 
 		$(".fa-play").on("click", function() {
 			$(".fa-pause").removeClass("active");
@@ -152,7 +144,6 @@ $(function(){
 			$("audio").trigger('play');
 		});
 
-	}
-
+	};
 
 });
