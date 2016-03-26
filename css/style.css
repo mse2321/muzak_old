@@ -1,7 +1,7 @@
 
 body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; position: absolute; bottom: 0; top: 0; left: 0; right: 0; width: 100%; }
 
-h1 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; font-size: 4em; margin-left: .5em; }
+h1 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; font-size: 4em; margin: 0; }
 
 h2 { color: #ccc; }
 
@@ -11,7 +11,7 @@ h2 { color: #ccc; }
 
 .input-group { width: 45%; }
 
-#content_wrap { padding: 2em; background-color: rgba(0, 0, 0, 0.6); position: relative; min-height: 100%; }
+#content_wrap { padding: 0 2em; background-color: rgba(0, 0, 0, 0.6); position: relative; min-height: 100%; }
 
 a { color: #26C6DA; }
 
