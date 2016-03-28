@@ -35,8 +35,6 @@ td { padding: 1em ; text-align: left; }
 
 #results { display: none; }
 
-audio { display: none; }
-
 .fa-play-circle { font-size: 2em; color: #26C6DA; cursor: pointer; }
 
 #play_buttons { text-align: right; }
