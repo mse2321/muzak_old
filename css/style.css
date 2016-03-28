@@ -61,7 +61,7 @@ audio { display: none; }
 
 #mobile_back { display: none; }
 
-footer { clear: both; padding-left: 1em; position: absolute; bottom: 0.8em; color: #ccc; padding-top: 40px; left: 0;}
+footer { clear: both; padding-left: 1em; position: absolute; bottom: 0.8em; color: #ccc; padding-top: 40px; left: 0; }
 
 
 @media screen and (max-width: 1000px) {
@@ -87,7 +87,7 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0.8em; colo
 	#mobile_back p { margin: 0; }
 	#mobile_back p:hover { color: #26C6DA; }
 	#search_form { margin: 2em auto; }
-	footer { text-align: center;  left: 35%; }
+	footer { left: 35%; }
 }
 
 @media screen and (max-height: 500px) {
