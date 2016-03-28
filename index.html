@@ -21,7 +21,7 @@
 		<div class="container col-xs-12" id="content_wrap">
 			<header>
 				<h1>Muzak</h1>
-				<p ng-init="hideInstructions()">Listen to preview tracks from your favorite artists using <a href="https://www.spotify.com" target="_blank">Spotify</a>.</p>
+				<p>Listen to preview tracks from your favorite artists using <a href="https://www.spotify.com" target="_blank">Spotify</a>.</p>
 			</header>
 			<section class="col-xs-12 col-md-8">
 				<div id="search_form" class="input-group">
@@ -32,34 +32,17 @@
 				</div>
 				<div id="results">
 					<h2>Results</h2>
-					<table ng-repeat="item in tracks_list">
-							<tr class="tracks">
+					<table>
+							<tr class="tracks" ng-repeat="item in tracks_list">
 								<td>{{ item.name }}</td>
-								<td>{{ item.track_url }}</td>
-								<td><i class='fa fa-play-circle'></i></td>
+								<td ng-click="playSongs(); showPlayer()" id="play_buttons"><i class='fa fa-play-circle'></i></td>
 							</tr>
 					</table>
 				</div>
 			</section>
 			<aside id="album_player_section" class="col-xs-12 col-md-4">
-				<div id="audioPlayer_wrap">
-					<!--<audio controls>
-						<source src="https://p.scdn.co/mp3-preview/5768266d881b231d2518a86d54a259b8dd6484f2" type="audio/mpeg">
-					</audio>-->
-					<div id="audioPlayer">
-						<img class="album_art" src="#" alt="" />
-						<div id="song_name_display"></div>
-						<div id="controls_wrap">
-							<div id="audio_controls">
-								<i class='fa fa-play control_button'></i>
-								<i class='fa fa-pause control_button'></i>
-							</div>
-						</div>
-						<div id="mobile_back">
-							<p>Back to results</p>
-						</div>
-					</div>
-				</div>
+				<audio-player>
+				</audio-player>
 			</aside>
 			<footer>
 				<small>&copy;2016 ME Innovation</small>
