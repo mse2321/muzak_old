@@ -66,7 +66,6 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0.8em; colo
 
 @media screen and (max-width: 1000px) {
 
-	body { position: relative; }
 	#content_wrap { width: 100%; padding: 0; }
 	section { margin-bottom: 1em; }
 	.input-group, tr, td, #audioPlayer_wrap { width: 100%; }
