@@ -69,7 +69,7 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0em; color:
 	html {height: 100%; width: 100%; }
 	body { height: 100%; min-height: 100%; }
 	#content_wrap { width: 100%; padding: 0; position: fixed; top: 0; bottom: 0; right: 0; left: 0; height: 100%; overflow-y: scroll; }
-	section { margin-bottom: 1em; }
+	section { margin-bottom: 0; }
 	.input-group, tr, td, #audioPlayer_wrap { width: 100%; }
 	#audioPlayer { margin-top: 0; width: 100%; border: none; border-top: 5px solid #616161; background-color: black; width: 100%; }
 	#controls_wrap, .album_art, #audioPlayer { border-radius: 0; }
@@ -77,7 +77,7 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0em; color:
 	#song_name_display { padding: 10px; margin: 5px 0; }
 	.album_art { width: 60%; background-color: #ccc; height: 60%; }
 	h1 { margin-bottom: .2em; margin-left: 0; margin-top: 0; }
-	h2 { text-align: center; }
+	h1, h2 { text-align: center; }
 	header { text-align: center; padding: 20px; margin-bottom: 0; }
 	header p { margin-left: 0; }
 	table { width: 100%; }
@@ -87,11 +87,10 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0em; color:
 	#mobile_back p { margin: 0; }
 	#mobile_back p:hover { color: #26C6DA; }
 	#search_form { margin: 2em auto; }
-	footer { text-align: center; position: relative; }
+	footer { text-align: center; position: relative; padding-top: 20px; }
 }
 
 @media screen and (max-height: 500px) {
 	.album_art { display: none; }
-	section { margin-bottom: 0; }
 }
 
