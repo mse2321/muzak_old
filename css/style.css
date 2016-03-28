@@ -15,7 +15,7 @@ h2 { color: #ccc; }
 
 a { color: #26C6DA; }
 
-header { margin-bottom: 4em; }
+header { margin-bottom: 4em; padding-top: 20px; }
 
 #album_player_section { float: right; padding-left: 150px; }
 
@@ -27,21 +27,23 @@ section { margin-bottom: 2em; float: left; }
 
 small { color: #bbb; }
 
-table { width: 70%; background-color: rgba(100, 100, 100, 0.2); }
+table { width: 60%; background-color: rgba(100, 100, 100, 0.2); }
 
 td { padding: 1em ; text-align: left; }
 
-.tracks { border-top: 2px solid #ccc; border-bottom: 2px solid #ccc; }
+.tracks { border-top: 2px solid #666; border-bottom: 2px solid #666; }
+
+#results { display: none; }
 
 audio { display: none; }
 
 .fa-play-circle { font-size: 2em; color: #26C6DA; cursor: pointer; }
 
-.play_button { text-align: right; }
+#play_buttons { text-align: right; }
 
 #audioPlayer_wrap { margin: 0 auto 1em auto; text-align: center; }
 
-#audioPlayer { background-color: #616161; border: 5px solid #616161; color: white; border-radius: 15px; width: 22.2em; line-height: 2em; display: none; }
+#audioPlayer { background-color: #777; border: 5px solid #ccc; color: white; border-radius: 15px; width: 22.2em; line-height: 2em; display: none; }
 
 .album_art { height: 300px; width: 300px; background-color: #8E24AA; border-radius: 10px 10px 0 0; }
 
@@ -59,13 +61,12 @@ audio { display: none; }
 
 #mobile_back { display: none; }
 
-header > p { margin-left: 1.1em; }
-
 footer { clear: both; padding-left: 1em; position: absolute; bottom: 0.8em; color: #ccc; padding-top: 40px; }
 
 
 @media screen and (max-width: 1000px) {
-	
+
+	body { position: relative; }
 	#content_wrap { width: 100%; padding: 0; }
 	section { margin-bottom: 1em; }
 	.input-group, tr, td, #audioPlayer_wrap { width: 100%; }
