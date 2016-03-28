@@ -1,5 +1,5 @@
 
-body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; position: fixed; bottom: 0; top: 0; left: 0; right: 0; width: 100%; min-height: 100%; }
+body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; position: fixed; bottom: 0; top: 0; left: 0; right: 0; width: 100%; min-height: 100%; height: 100%; }
 
 h1 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; font-size: 4em; margin: 0; }
 
@@ -66,7 +66,7 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0.8em; colo
 
 @media screen and (max-width: 1000px) {
 
-	#content_wrap { width: 100%; padding: 0; position: absolute; top: 0; bottom: 0; right: 0; left: 0; }
+	#content_wrap { width: 100%; padding: 0; position: absolute; top: 0; bottom: 0; right: 0; left: 0; height: 100%; }
 	section { margin-bottom: 1em; }
 	.input-group, tr, td, #audioPlayer_wrap { width: 100%; }
 	#audioPlayer { margin-top: 0; width: 100%; border: none; border-top: 5px solid #616161; } { width: 100%; }
