@@ -37,9 +37,14 @@
 					<table>
 							<tr class="tracks" ng-repeat="item in tracks_list">
 								<td>{{ item.name }}</td>
-								<td ng-click="playSongs(); showPlayer()" id="play_buttons"><i class='fa fa-play-circle'></i></td>
+								<td ng-click="playSongs(item.id); showPlayer()" id="play_buttons"><i class='fa fa-play-circle'></i></td>
 							</tr>
 					</table>
+					<div ng-repeat="item in tracks_list">
+						<div ng-click="test(item.id)">
+						{{ item.id }}
+						</div>
+					</div>
 				</div>
 			</section>
 			<aside id="album_player_section" class="col-xs-12 col-md-4">

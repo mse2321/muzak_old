@@ -15,6 +15,8 @@ h2 { color: #ccc; }
 
 a { color: #26C6DA; }
 
+audio { display: none; }
+
 header { margin-bottom: 4em; padding-top: 20px; }
 
 #album_player_section { float: right; padding-left: 150px; }
@@ -69,7 +71,7 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0em; color:
 	#content_wrap { width: 100%; padding: 0; position: fixed; top: 0; bottom: 0; right: 0; left: 0; height: 100%; overflow-y: scroll; }
 	section { margin-bottom: 0; }
 	.input-group, tr, td, #audioPlayer_wrap { width: 100%; }
-	#audioPlayer { margin-top: 0; width: 100%; border: none; border-top: 5px solid #616161; background-color: black; width: 100%; }
+	#audioPlayer { margin-top: 0; width: 100%; border: none; border-top: 5px solid #616161; background-color: #263238; width: 100%; }
 	#controls_wrap, .album_art, #audioPlayer { border-radius: 0; }
 	#album_player_section { float: right; padding-left: 0; padding-right: 0; }
 	#song_name_display { padding: 10px; margin: 5px 0; }

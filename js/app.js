@@ -88,10 +88,6 @@ var demo = angular.module('demo', []);
 					$scope.tracks_list.push($scope.track_item);
 
 		  		};
-		  		//console.log($scope.tracks_list);
-				$scope.playSongs($scope.tracks_list);
-				$scope.showPlayer();
-			  	$scope.hidePlayer();	
 		  		
 		  	})
 		  	.error(function(results){
@@ -121,9 +117,10 @@ var demo = angular.module('demo', []);
 
 	};
 
-	$scope.playSongs = function(tracks_list) {
+	$scope.playSongs = function(id) {
 
-		$scope.itemNumber = $(this)[0].item.id;
+		$scope.itemNumber = id;
+		console.log($scope.itemNumber);
 
 		$("source").attr("src", $scope.tracks_list[$scope.itemNumber].track_url);
 		$(".album_art").attr('src', $scope.tracks_list[$scope.itemNumber].albumArt);
@@ -133,7 +130,6 @@ var demo = angular.module('demo', []);
 		$("#music").trigger('play');
 		$(".fa-pause").removeClass("active");
 		$(".fa-play").addClass("active");
-
 	};
 
 	$scope.pauseSongs = function() {
