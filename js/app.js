@@ -32,13 +32,22 @@ var demo = angular.module('demo', []);
 		$scope.sendArtistData = function() {
 			$scope.artistName = $('#search').val(); // get the value of the tags the user submitted
 
-			if($scope.submissions === 0) {
+			if($scope.submissions === 0 ) {
 				$scope.findArtist($scope.artistName);
+
 			} else {
 				location.reload();
 			}
 			++$scope.submissions;
 		};
+
+		$scope.enterKeyPress = function(e) {
+			$(document).keypress(function(e){
+				if (e.which == 13) {
+					$scope.sendArtistData();
+				}
+			})
+		}
 
 		$scope.findArtist =  function(artistName) {
 
