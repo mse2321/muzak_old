@@ -1,5 +1,5 @@
 
-body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; min-height: 100%; }
+body { background: url("../img/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover; color: white; font-family: 'Roboto', sans-serif; min-height: 100%; height: 100%; width: 100%; }
 
 h1 { color: #8E24AA; font-family: 'Luckiest Guy', Arial, sans-serif; font-size: 4em; margin: 0; }
 
@@ -11,7 +11,7 @@ h2 { color: #ccc; }
 
 .input-group { width: 45%; }
 
-#content_wrap { padding: 0 2em; background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; bottom: 0; right: 0; left: 0; min-height: 100%; }
+#content_wrap { padding: 0 2em; position: absolute; top: 0; bottom: 0; right: 0; left: 0; min-height: 100%; }
 
 a { color: #26C6DA; }
 
@@ -29,7 +29,7 @@ section { margin-bottom: 2em; float: left; }
 
 small { color: #bbb; }
 
-table { width: 60%; background-color: rgba(100, 100, 100, 0.2); }
+table { width: 60%; background-color: rgba(0, 0, 0, 0.5); }
 
 td { padding: 1em ; text-align: left; }
 
@@ -61,10 +61,10 @@ td { padding: 1em ; text-align: left; }
 
 #mobile_back { display: none; }
 
-footer { clear: both; padding-left: 1em; position: absolute; bottom: 0em; color: #ccc; padding-top: 40px; left: 0; }
+footer { clear: both; padding-left: 1em; position: absolute; bottom: 0; color: #ccc; padding-top: 40px; left: 0; }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 989px) {
 	
 	#content_wrap { width: 100%; padding: 0; overflow-y: scroll; }
 	section { margin-bottom: 0; }
@@ -87,6 +87,17 @@ footer { clear: both; padding-left: 1em; position: absolute; bottom: 0em; color:
 	#search_form { margin: 2em auto; }
 	footer { text-align: center; position: relative; padding-top: 20px; }
 }
+
+@media screen and (min-width: 990px) and (max-width: 1399px) {
+	#album_player_section { padding-left: 0px; }
+	#audioPlayer_wrap { margin: 0 auto 1em auto; text-align: center; }
+	#audioPlayer { background-color: #777; border: 5px solid #ccc; color: white; border-radius: 15px; width: 22.2em; line-height: 2em; display: none; }
+}
+
+@media screen and (max-height: 1000px) {
+	footer { position: relative; padding-top: 20px; }
+}
+
 
 @media screen and (max-height: 500px) {
 	.album_art { display: none; }
