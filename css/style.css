@@ -11,7 +11,7 @@ h2 { color: #ccc; }
 
 .input-group { width: 45%; }
 
-#content_wrap { padding: 0 2em; background-color: rgba(0, 0, 0, 0.6);  z-index: 500; }
+#content_wrap { padding: 0 2em; background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; bottom: 0; right: 0; left: 0;  z-index: 500; }
 
 a { color: #26C6DA; }
 
@@ -61,7 +61,7 @@ td { padding: 1em ; text-align: left; }
 
 #mobile_back { display: none; }
 
-footer { clear: both; padding-left: 1em; position: absolute; bottom: 0; color: #ccc; padding-top: 40px; left: 0; }
+footer { clear: both; padding-left: 1em; position: relative; bottom: 0; color: #ccc; padding-top: 40px; left: 0; }
 
 
 @media screen and (max-width: 990px) {
