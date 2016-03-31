@@ -11,7 +11,7 @@ h2 { color: #ccc; }
 
 .input-group { width: 45%; }
 
-#content_wrap { padding: 0 2em; background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; bottom: 0; right: 0; left: 0;  z-index: 500; }
+#content_wrap { padding: 0 2em; background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; bottom: 40px; right: 0; left: 0;  z-index: 500; }
 
 a { color: #26C6DA; }
 
@@ -61,7 +61,7 @@ td { padding: 1em ; text-align: left; }
 
 #mobile_back { display: none; }
 
-footer { clear: both; padding-left: 1em; position: relative; bottom: 0; color: #ccc; padding-top: 40px; left: 0; }
+footer { clear: both; position: fixed; bottom: 0; color: #ccc; padding: 10px 0 10px 16px; left: 0; background-color: #263238; width: 100%; }
 
 
 @media screen and (max-width: 990px) {
@@ -73,7 +73,7 @@ footer { clear: both; padding-left: 1em; position: relative; bottom: 0; color: #
 	#controls_wrap, .album_art, #audioPlayer { border-radius: 0; }
 	#album_player_section { float: right; padding-left: 0; padding-right: 0; }
 	#song_name_display { padding: 10px; margin: 5px 0; }
-	.album_art { width: 60%; background-color: #ccc; height: 60%; }
+	.album_art { width: 50%; background-color: #ccc; height: 50%; }
 	h1 { margin-bottom: .2em; margin-left: 0; margin-top: 0; }
 	h1, h2 { text-align: center; }
 	header { text-align: center; padding: 20px; margin-bottom: 0; }
@@ -85,7 +85,7 @@ footer { clear: both; padding-left: 1em; position: relative; bottom: 0; color: #
 	#mobile_back p { margin: 0; }
 	#mobile_back p:hover { color: #26C6DA; }
 	#search_form { margin: 2em auto; }
-	footer { text-align: center; position: relative; padding-top: 20px; }
+	footer { text-align: center; }
 }
 
 @media screen and (min-width: 991px) and (max-width: 1399px) {
@@ -93,11 +93,6 @@ footer { clear: both; padding-left: 1em; position: relative; bottom: 0; color: #
 	#audioPlayer_wrap { margin: 0 auto 1em auto; text-align: center; }
 	#audioPlayer { background-color: #777; border: 5px solid #ccc; color: white; border-radius: 15px; width: 22.2em; line-height: 2em; display: none; }
 }
-
-@media screen and (max-height: 800px) {
-	footer { position: relative; padding-top: 20px; }
-}
-
 
 @media screen and (max-height: 500px) {
 	.album_art { display: none; }
