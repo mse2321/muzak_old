@@ -107,7 +107,7 @@ var demo = angular.module('demo', []);
 
 	$scope.showPlayer = function() {
 
-		if ( $(window).width() < 990) {
+		if ( $(window).width() < 1099) {
 				$("#audioPlayer").show("slide", { direction: "right" });
 				$("section").css("opacity", '0.2');
 			}
@@ -117,7 +117,7 @@ var demo = angular.module('demo', []);
 
 	$scope.hidePlayer = function() {
 
-		if ( $(window).width() < 990) {
+		if ( $(window).width() < 1099) {
 				$("#audioPlayer").hide("slide", { direction: "right" });
 				$("section").css("opacity", '1');
 			}
