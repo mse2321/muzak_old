@@ -109,7 +109,7 @@ var demo = angular.module('demo', []);
 
 		if ( $(window).width() < 990) {
 				$("#audioPlayer").show("slide", { direction: "right" });
-				$("#search_form, #results, header > p").hide("slide", { direction: "left" });
+				$("section").css("opacity", '0.2');
 			}
 			
 			$("header").css("padding", "20px 20px 0px 20px");
@@ -119,7 +119,7 @@ var demo = angular.module('demo', []);
 
 		if ( $(window).width() < 990) {
 				$("#audioPlayer").hide("slide", { direction: "right" });
-				$("#search_form, #results").show("slide", { direction: "left" });
+				$("section").css("opacity", '1');
 			}
 
 			$("header").css("padding", "20px");
