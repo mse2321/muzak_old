@@ -110,6 +110,8 @@ var demo = angular.module('demo', []);
 		if ( $(window).width() < 1099) {
 				$("#audioPlayer").show("slide", { direction: "right" });
 				$("section").css("opacity", '0.2');
+			} else {
+				$("#mobile_back").css("display", "none");
 			}
 			
 			$("header").css("padding", "20px 20px 0px 20px");
