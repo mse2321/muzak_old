@@ -23,6 +23,8 @@ header { margin-bottom: 4em; padding-top: 20px; }
 
 #album_player_section { float: right; padding-left: 150px; }
 
+#artist_info { background-color: #607D8B; color: white; position: fixed; right: 0; bottom: 40px; top: 0; padding: 70px 40px 40px 40px; width: 30%; display: none; z-index: 500; }
+
 .album { color: #26C6DA; font-size: 16px; }
 
 .tracks:hover { background-color: #8E24AA; } 
@@ -39,7 +41,9 @@ td { padding: 1em ; text-align: left; }
 
 #results { display: none; margin-bottom: 40px; }
 
-.fa-play-circle { font-size: 2em; color: #26C6DA; cursor: pointer; }
+.fa-play-circle { font-size: 2em; color: #26C6DA; cursor: pointer; z-index: 1000; }
+
+.fa-info-circle { position: absolute; font-size: 3em; cursor: pointer; top: 0.7em; right: 0.7em; display: none; z-index: 1000;}
 
 #play_buttons { text-align: right; }
 

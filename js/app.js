@@ -31,6 +31,7 @@ var demo = angular.module('demo', []);
 
 		$scope.sendArtistData = function() {
 			$scope.artistName = $('#search').val(); // get the value of the tags the user submitted
+			$(".fa-info-circle").show();
 
 			if($scope.submissions === 0 ) {
 				$scope.findArtist($scope.artistName);
@@ -153,6 +154,10 @@ var demo = angular.module('demo', []);
 		$(".fa-pause").removeClass("active");
 		$(".fa-play").addClass("active");
 		$("#music").trigger("play");
+	};
+
+	$scope.showInfo = function() {
+		$("#artist_info").toggle("slide", { direction: "right" });
 	};
 
 })
