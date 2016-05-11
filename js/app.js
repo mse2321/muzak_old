@@ -1,7 +1,7 @@
 var demo = angular.module('demo', []);
 
 
-	// gets artist
+	// gets artist from Spotify
 	demo.factory('artist', function($http){
 	            return function(artistName){
 	              return $http ({ 
@@ -15,12 +15,38 @@ var demo = angular.module('demo', []);
 	            };
 	}); // end of artist
 
-	// gets songs
+	// gets songs from Spotify
 	demo.factory('songs', function($http){
 	            return function(artist_id){
 	              return $http ({ 
 	                method: 'GET', 
 	                url: 'https://api.spotify.com/v1/artists/' + artist_id + '/top-tracks?country=US'
+	                //params: {callback: 'JSON_CALLBACK'}
+	              })
+	            };
+	}); // end of songs
+
+
+	// gets artist from Discogs
+	demo.factory('artist2', function($http){
+	            return function(artistName){
+	              return $http ({ 
+	                method: 'GET', 
+	                url: 'https://api.discogs.com//database/search?',
+	                params: {
+			  			q: artistName,
+			  			type: "artist"
+		  			}
+	              })
+	            };
+	}); // end of artist
+
+	// gets artist info from Discogs
+	demo.factory('info', function($http){
+	            return function(artist_id){
+	              return $http ({ 
+	                method: 'GET', 
+	                url: 'https://api.discogs.com/artists/' + artist_id
 	                //params: {callback: 'JSON_CALLBACK'}
 	              })
 	            };
