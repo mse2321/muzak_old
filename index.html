@@ -23,7 +23,7 @@
 		<div class="container col-xs-12" id="content_wrap">
 			<header>
 				<h1>Muzak</h1>
-				<p>Listen to preview tracks from your favorite artists using <a href="https://www.spotify.com" target="_blank">Spotify</a>.</p>
+				<p>Listen to preview tracks from your favorite artists using <a href="https://www.spotify.com" target="_blank">Spotify</a> and artist information from <a href="https://www.spotify.com" target="_blank">Discogs</a>.</p>
 				<i class="fa fa-info-circle" aria-hidden="true" ng-click="showInfo()"></i>
 			</header>
 			<section class="col-xs-12 col-md-8">
@@ -34,7 +34,7 @@
 					</span>			
 				</div>
 				<div id="results">
-					<h2>Results</h2>
+					<h2>Top Songs</h2>
 					<table>
 							<tr class="tracks" ng-repeat="item in tracks_list">
 								<td>{{ item.name }}</td>
@@ -42,14 +42,23 @@
 							</tr>
 					</table>
 				</div>
+				<div id="multi_results">
+					<p>There were multiple artist results. Please select the one.</p>
+					<ul>
+						<li ng-repeat="item in artist_list" ng-click="newArtistSearch()">{{ item.name }}</li>
+					</ul>
+				</div>
 			</section>
 			<aside id="album_player_section" class="col-xs-12 col-md-4">
 				<audio-player>
 				</audio-player>
 				<div id="artist_info">
-					<h3>Artist Name</h3>
-					<p>Website Link</p>
-					<p>Biography/Summary</p>
+					<h3>{{ name }}</h3>
+					<img src="#" alt="{{ artistName }} Thumbnail"  />
+					<p><a href="{{ bio }}">{{ artistName }} Profile from Discogs</a></p>
+					<ul>
+						<li ng-repeat="artist_url in artist_urls"><a href="{{ artist_url }}">{{ artist_url }}</a></li>
+					</ul>
 				</div>
 			</aside>
 			<footer>

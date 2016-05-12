@@ -30,12 +30,16 @@ var demo = angular.module('demo', []);
 	// gets artist from Discogs
 	demo.factory('artist2', function($http){
 	            return function(artistName){
+
+	            	var secret_key = "OcuHHDfOEJrlKlNaLVAFCjBLzQqPfmvq";
 	              return $http ({ 
 	                method: 'GET', 
 	                url: 'https://api.discogs.com//database/search?',
 	                params: {
 			  			q: artistName,
-			  			type: "artist"
+			  			type: "artist",
+			  			key: "FrEJfCEeKbnHxmsEAvJA",
+			  			secret: secret_key
 		  			}
 	              })
 	            };
@@ -52,7 +56,7 @@ var demo = angular.module('demo', []);
 	            };
 	}); // end of songs
 
-	demo.controller('ctrl', function($scope, artist, songs){
+	demo.controller('ctrl', function($scope, artist, songs, artist2, info){
 		$scope.submissions = 0;
 
 		$scope.sendArtistData = function() {
@@ -76,27 +80,80 @@ var demo = angular.module('demo', []);
 			})
 		}
 
-		$scope.findArtist =  function(artistName) {
+		$scope.findArtist =  function(artistName, newArtistId) {
 
-			//$scope.artistName = artistName.;
 			console.log(artistName);
-
+			
 		  	artist(artistName).success(function (results) {
 		  		console.log(results);
-		  		$scope.getSongs(results);
+		  		$scope.artist_list = results.artists.items;
+		  		console.log($scope.artist_list);
+
+		  		if($scope.artist_list.length >= 1) {
+		  			$scope.multipleResults();
+		  		} else {
+		  			alert("That artist was not found!");
+		  		}
+		  		$scope.getSongs(results, newArtistId);
 		  	})
 		  	.error(function(results){
 				console.log("Error!");
 				console.log(results);
+			})
+			artist2(artistName).success(function (results3) {
+		  		console.log(results3);
+
+		  		$scope.artistNames = [];
+
+		  		for(i = 0; i < results3.results.length; i++) {
+		  			$scope.paren = results3.results[i].title.indexOf("(");
+		  			console.log($scope.paren);
+
+		  			$scope.artistNames_item = {
+		  				name: results3.results[i].title,
+		  				id: results3.results[i].id
+
+		  			};
+
+		  			if($scope.paren != -1) {
+
+			  			$scope.artistNames_item = {
+			  				name: results3.results[i].title.slice(0, -4),
+			  				id: results3.results[i].id
+
+			  			};
+		  				$scope.artistNames.push($scope.artistNames_item);
+
+		  			} else {
+		  				$scope.artistNames.push($scope.artistNames_item);
+		  			};
+
+		  			if (artistName === $scope.artistNames[i].name) {
+		  				$scope.newId = $scope.artistNames[i].id;
+		  				$("#artist_info img").attr("src", results3.results[i].thumb);
+		  				console.log($scope.newId);
+
+		  				$scope.getInfo($scope.newId);
+		  			} else {
+		  				console.log("ERROR!!!");
+		  			}
+
+		  			};
+		  		//console.log($scope.artistNames);
+
+		  	})
+		  	.error(function(results3){
+				console.log("Error!");
+				console.log(results3);
 			});
 
 			$("#results").show();
 
 		};
 
-		$scope.getSongs = function(results) {
+		$scope.getSongs = function(results, newArtistId) {
 
-			$scope.artist_id = results.artists.items[0].id;
+			$scope.artist_id = newArtistId;
 			console.log($scope.artist_id);
 				
 		  	songs($scope.artist_id).success(function (results2) {
@@ -128,6 +185,23 @@ var demo = angular.module('demo', []);
 		  	})
 		  	.error(function(results){
 				console.log("Error!" + results);
+			});
+
+		};
+
+		$scope.getInfo = function(newId, artistName) {
+
+		  	info(newId).success(function (results4) {
+
+		  		console.log(results4);
+
+		  		$scope.name = $scope.artistName;
+		  		$scope.bio = results4.uri;
+		  		$scope.artist_urls = results4.urls;
+		  			
+		  	})
+		  	.error(function(results5){
+				console.log("Not Applicable");
 			});
 
 		};
@@ -184,6 +258,17 @@ var demo = angular.module('demo', []);
 
 	$scope.showInfo = function() {
 		$("#artist_info").toggle("slide", { direction: "right" });
+	};
+
+	$scope.multipleResults = function() {
+		$("#multi_results").toggle("slide", { direction: "left" });
+	};
+
+	$scope.newArtistSearch = function(){
+			$scope.artistName = this.item.name;
+			$scope.newArtistId = this.item.id;
+			$("#search").val($scope.artistName);
+			$scope.findArtist($scope.artistName, $scope.newArtistId);
 	};
 
 })
