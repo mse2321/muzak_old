@@ -43,9 +43,9 @@
 					</table>
 				</div>
 				<div id="multi_results">
-					<p>There were multiple artist results. Please select the one.</p>
+					<h3>Search Results</h3>
 					<ul>
-						<li ng-repeat="item in artist_list" ng-click="newArtistSearch()">{{ item.name }}</li>
+						<li ng-repeat="item in artist_list" ng-click="newArtistSearch()"><img src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
 					</ul>
 				</div>
 			</section>

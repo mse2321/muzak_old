@@ -61,7 +61,6 @@ var demo = angular.module('demo', []);
 
 		$scope.sendArtistData = function() {
 			$scope.artistName = $('#search').val(); // get the value of the tags the user submitted
-			$(".fa-info-circle").show();
 
 			if($scope.submissions === 0 ) {
 				$scope.findArtist($scope.artistName);
@@ -88,9 +87,10 @@ var demo = angular.module('demo', []);
 		  		console.log(results);
 		  		$scope.artist_list = results.artists.items;
 		  		console.log($scope.artist_list);
+		  		$scope.artist_list_length = $scope.artist_list.length;
 
-		  		if($scope.artist_list.length >= 1) {
-		  			$scope.multipleResults();
+		  		if($scope.artist_list_length >= 1) {
+		  			$scope.multipleResults($scope.artist_list);
 		  		} else {
 		  			alert("That artist was not found!");
 		  		}
@@ -104,8 +104,9 @@ var demo = angular.module('demo', []);
 		  		console.log(results3);
 
 		  		$scope.artistNames = [];
+		  		$scope.result_length = results3.results.length;
 
-		  		for(i = 0; i < results3.results.length; i++) {
+		  		for(i = 0; i < $scope.result_length; i++) {
 		  			$scope.paren = results3.results[i].title.indexOf("(");
 		  			console.log($scope.paren);
 
@@ -129,16 +130,17 @@ var demo = angular.module('demo', []);
 		  			};
 
 		  			if (artistName === $scope.artistNames[i].name) {
-		  				$scope.newId = $scope.artistNames[i].id;
-		  				$("#artist_info img").attr("src", results3.results[i].thumb);
-		  				console.log($scope.newId);
+                          $scope.newId = $scope.artistNames[i].id;
+                          $("#artist_info img").attr("src", results3.results[i].thumb);
 
-		  				$scope.getInfo($scope.newId);
-		  			} else {
-		  				console.log("ERROR!!!");
-		  			}
+                          console.log($scope.newId);
 
-		  			};
+                          $scope.getInfo($scope.newId);
+                      break;
+					}
+
+		  		};
+
 		  		//console.log($scope.artistNames);
 
 		  	})
@@ -146,8 +148,6 @@ var demo = angular.module('demo', []);
 				console.log("Error!");
 				console.log(results3);
 			});
-
-			$("#results").show();
 
 		};
 
@@ -196,8 +196,13 @@ var demo = angular.module('demo', []);
 		  		console.log(results4);
 
 		  		$scope.name = $scope.artistName;
+		  		//$scope.bio = results4.profile;
 		  		$scope.bio = results4.uri;
 		  		$scope.artist_urls = results4.urls;
+		  		//$scope.dc_urls = /['[url]']/g
+
+		  		//$scope.bio.search("[url]").css("display", "none");
+
 		  			
 		  	})
 		  	.error(function(results5){
@@ -207,8 +212,7 @@ var demo = angular.module('demo', []);
 		};
 
 	$scope.showPlayer = function() {
-
-		if ( $(window).width() < 1099) {
+		if ( $(window).width() < 1099 || $(window).height() < 500 ) {
 				$("#audioPlayer").show("slide", { direction: "right" });
 				$("section").css("opacity", '0.2');
 			} else {
@@ -220,7 +224,7 @@ var demo = angular.module('demo', []);
 
 	$scope.hidePlayer = function() {
 
-		if ( $(window).width() < 1099) {
+		if ( $(window).width() < 1099 || $(window).height() < 500 ) {
 				$("#audioPlayer").hide("slide", { direction: "right" });
 				$("section").css("opacity", '1');
 			}
@@ -267,8 +271,11 @@ var demo = angular.module('demo', []);
 	$scope.newArtistSearch = function(){
 			$scope.artistName = this.item.name;
 			$scope.newArtistId = this.item.id;
+			console.log($scope.newArtistId);
 			$("#search").val($scope.artistName);
 			$scope.findArtist($scope.artistName, $scope.newArtistId);
+			$(".fa-info-circle").show();
+			$("#results").show();
 	};
 
 })

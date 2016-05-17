@@ -1,5 +1,5 @@
 # muzak
-Thinkful FrontEnd Capstone Project using Spotify API
+Music search engine using Spotify and Discogs (Coming soon) APIs.
 
 This is a search engine, powered by Spotify's API, that lets you search for your favorite artist and listen to previews of their
 most popular songs. I created my own custom audio player with album art.
