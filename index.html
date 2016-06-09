@@ -7,8 +7,7 @@
 		<title>Muzak - Music the quick and easy way</title>
 		<!--<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />-->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Roboto|Luckiest+Guy' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -31,10 +30,10 @@
 				<div id="results">
 					<h2>Top Songs</h2>
 					<table>
-							<tr class="tracks" ng-repeat="item in tracks_list">
-								<td>{{ item.name }}</td>
-								<td ng-click="playSongs(item.id); showPlayer()" id="play_buttons"><i class='fa fa-play-circle'></i></td>
-							</tr>
+						<tr class="tracks" ng-repeat="item in tracks_list">
+							<td>{{ item.name }}</td>
+							<td ng-click="playSongs(item.id); showPlayer()" id="play_buttons"><i class='fa fa-play-circle'></i></td>
+						</tr>
 					</table>
 				</div>
 				<div id="multi_results">
@@ -45,8 +44,7 @@
 				</div>
 			</section>
 			<aside id="album_player_section" class="col-xs-12 col-md-4">
-				<audio-player>
-				</audio-player>
+				<audio-player></audio-player>
 				<div id="artist_info">
 					<h3>{{ name }}</h3>
 					<img src="#" alt="{{ artistName }} Thumbnail"  />
@@ -57,7 +55,7 @@
 				</div>
 			</aside>
 			<footer>
-				<small>&copy;2016 ME Innovation</small>
+				<small>&copy;2016 <a href="http://www.meinnovation.net" target="_blank">ME Innovation</a></small>
 			</footer>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
