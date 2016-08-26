@@ -54,8 +54,8 @@ demo.factory("info", function($http){
 demo.controller("ctrl", function($scope, artist, songs, artist2, info){
 	$scope.submissions = 0;
 
-	$scope.sendArtistData = function() {
-		$scope.artistName = $("#search").val(); // get the value of the tags the user submitted
+	$scope.sendArtistData = function(artistName) {
+		$scope.artistName = artistName; // get the value of the tags the user submitted
 		if($scope.submissions === 0 ) {
 			$scope.findArtist($scope.artistName);
 		} else {
@@ -74,9 +74,9 @@ demo.controller("ctrl", function($scope, artist, songs, artist2, info){
 
 	$scope.findArtist =  function(artistName, newArtistId) {			
 		artist(artistName).success(function (results) {
-		  		console.log(results);
+		  		//console.log(results);
 		  		$scope.artist_list = results.artists.items;
-		  		console.log($scope.artist_list);
+		  		//console.log($scope.artist_list);
 		  		$scope.artist_list_length = $scope.artist_list.length;
 		  		if($scope.artist_list_length >= 1) {
 		  			$scope.multipleResults($scope.artist_list);
@@ -85,22 +85,19 @@ demo.controller("ctrl", function($scope, artist, songs, artist2, info){
 		  		}
 		  		$scope.getSongs(results, newArtistId);
 		})
-		.error(function(results){
-				console.log("Error!");
-		})
-		artist2(artistName).success(function (results3) {
+		artist2(artistName).success(function (artistInfo_results) {
 		  	$scope.artistNames = [];
-		  	$scope.result_length = results3.results.length;
+		  	$scope.result_length = artistInfo_results.results.length;
 		  	for(i = 0; i < $scope.result_length; i++) {
-		  		$scope.paren = results3.results[i].title.indexOf("(");
+		  		$scope.paren = artistInfo_results.results[i].title.indexOf("(");
 		  		$scope.artistNames_item = {
-		  			name: results3.results[i].title,
-		  			id: results3.results[i].id
+		  			name: artistInfo_results.results[i].title,
+		  			id: artistInfo_results.results[i].id
 		  		};
 		  		if($scope.paren != -1) {
 			  		$scope.artistNames_item = {
-			  			name: results3.results[i].title.slice(0, -4),
-			  			id: results3.results[i].id
+			  			name: artistInfo_results.results[i].title.slice(0, -4),
+			  			id: artistInfo_results.results[i].id
 			  		};
 		  			$scope.artistNames.push($scope.artistNames_item);
 		  		} else {
@@ -113,45 +110,36 @@ demo.controller("ctrl", function($scope, artist, songs, artist2, info){
                     break;
 				};
 		  	};
-		})
-		.error(function(results3){
-			console.log("Error!");
 		});
 	};
 
 	$scope.getSongs = function(results, newArtistId) {
 		$scope.artist_id = newArtistId;
-		songs($scope.artist_id).success(function (results2) {
+		songs($scope.artist_id).success(function (song_results) {
 		  	$scope.tracks_list = [];
 		  	for(i = 0; i < 10; i++) {
 		  		$scope.track_item = {
-					name: results2.tracks[i].name;,
-					albumName: results2.tracks[i].album.name,
-					track_url: results2.tracks[i].preview_url,
-					albumArt: results2.tracks[i].album.images[1].url,
+					name: song_results.tracks[i].name,
+					albumName: song_results.tracks[i].album.name,
+					track_url: song_results.tracks[i].preview_url,
+					albumArt: song_results.tracks[i].album.images[1].url,
 					id: i
 				}; 
 				$scope.tracks_list.push($scope.track_item);
 		  	};
-		})
-		.error(function(results){
-			console.log("Error!" + results);
 		});
 	};
 
 	$scope.getInfo = function(newId, artistName) {
-		info(newId).success(function (results4) {
+		info(newId).success(function (artist_bio) {
 		  	$scope.name = $scope.artistName;
-		  	$scope.bio = results4.uri;
-		  	$scope.artist_urls = results4.urls;
-		})
-		.error(function(results5){
-			console.log("Not Applicable");
+		  	$scope.bio = artist_bio.uri;
+		  	$scope.artist_urls = artist_bio.urls;
 		});
 	};
 
 	$scope.showPlayer = function() {
-		if ( $(window).width() < 1099 || $(window).height() < 500 ) {
+		if ( window.innerWidth < 1099 || window.innerHeight < 500 ) {
 			$("#audioPlayer").show("slide", { direction: "right" });
 			$("section").css("opacity", "0.2");
 		} else {
@@ -161,7 +149,7 @@ demo.controller("ctrl", function($scope, artist, songs, artist2, info){
 	};
 
 	$scope.hidePlayer = function() {
-		if ( $(window).width() < 1099 || $(window).height() < 500 ) {
+		if ( window.innerWidth < 1099 || window.innerHeight < 500 ) {
 			$("#audioPlayer").hide("slide", { direction: "right" });
 			$("section").css("opacity", "1");
 		}
