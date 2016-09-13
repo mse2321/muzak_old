@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	<html lang="en">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,7 @@
 				</div>
 				<div id="multi_results">
 					<h3>Search Results</h3>
-					<ul>
+					<ul><!-- need to replace src with value before search is ran -->
 						<li ng-repeat="item in artist_list" ng-click="newArtistSearch()"><img src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
 					</ul>
 				</div>
@@ -64,4 +64,4 @@
 		<script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 		<script defer src="js/app.js"></script>
 	</body>
-	</html>	
+</html>	

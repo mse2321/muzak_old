@@ -14,7 +14,7 @@ demo.factory("artist", function($http){
 	};
 }); // end of artist
 
-// gets songs from Spotify
+// gets songs from Spotify. Need to have some kind of placeholder for artist_id when a value is not present
 demo.factory("songs", function($http){
 	return function(artist_id){
 	    return $http ({ 
@@ -105,7 +105,7 @@ demo.controller("ctrl", function($scope, artist, songs, artist2, info){
 		  		};
 		  		if (artistName === $scope.artistNames[i].name) {
                     $scope.newId = $scope.artistNames[i].id;
-                    $("#artist_info img").attr("src", results3.results[i].thumb);
+                    $("#artist_info img").attr("src", artistInfo_results.results[i].thumb);
                     $scope.getInfo($scope.newId);
                     break;
 				};
