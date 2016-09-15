@@ -13,7 +13,7 @@ demo.factory("artist", function($http){
 	    })
 	};
 }); // end of artist
-// gets songs from Spotify. Need to have some kind of placeholder for artist_id when a value is not present
+// gets songs from Spotify
 demo.factory("songs", function($http){
 	return function(artist_id){
 	    return $http ({ 
@@ -68,10 +68,11 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	$scope.findArtist =  function(artistName) {			
 		artist(artistName).success(function (results) {
 		  	$scope.artist_list = results.artists.items;
-		  	$scope.currentArtistId = results.artists.items[0].id;
+		  	$scope.currentArtistId = $scope.artist_list[0].id;
 		  	$scope.artist_list_length = $scope.artist_list.length;
+
 		  	if($scope.artist_list_length > 1) {
-		  		$scope.multipleResults($scope.artist_list);
+		  		$scope.multipleResults();
 		  	} else if ($scope.artist_list_length === 1) {
 		  		$scope.getSongs(currentArtistId);
 		  		$scope.findArtistInfo(artistName);
@@ -111,8 +112,8 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	};
 // Displays multiple results
 	$scope.multipleResults = function() {
-		//$("#multi_results").toggle("slide", { direction: "left" });
 		$scope.showArtistSearchResults = true;
+		document.querySelector("#multi_results").style.width = "30%";
 	};
 // Goes back to Spotify to find the artist ID for whatever artist the user selects from the listing
 	$scope.multipleResultsFindArtist = function(){
@@ -135,13 +136,12 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	};
 // Displays the aside
 	$scope.showInfo = function() {
-		//$("#artist_info").toggle("slide", { direction: "right" });
 		$scope.showArtistInfo = !$scope.showArtistInfo;
+		document.querySelector("#artist_info").style.width = "30%";
 	};
 // Displays the custom audio player
 	$scope.showPlayer = function() {
 		if ( window.innerWidth < 1099 || window.innerHeight < 500 ) {
-			//$("#audioPlayer").show("slide", { direction: "right" });
 			$scope.showAudioPlayer = true;
 			$scope.mobileBack = true;
 			document.querySelector("section").style.opacity = "0.2";
@@ -151,7 +151,6 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Hides the player
 	$scope.hidePlayer = function() {
 		if ( window.innerWidth < 1099 || window.innerHeight < 500 ) {
-			//$("#audioPlayer").hide("slide", { direction: "right" });
 			$scope.showAudioPlayer = false;
 			document.querySelector("section").style.opacity = "1";
 		}

@@ -40,7 +40,7 @@
 				<div id="multi_results" ng-show="showArtistSearchResults">
 					<h3>Search Results</h3>
 					<ul><!-- need to replace src with value before search is ran -->
-						<li ng-repeat="item in artist_list" ng-click="multipleResultsFindArtist()"><img src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
+						<li ng-repeat="item in artist_list" ng-click="multipleResultsFindArtist()"><img class="artist_thumbs" src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
 					</ul>
 				</div>
 			</section>

@@ -40,6 +40,9 @@ section {
 	margin-bottom: 2em; 
 	float: left; 
 }
+form {
+	display: table;
+}
 .hidden { 
 	display: none; 
 }
@@ -74,8 +77,9 @@ audio {
 	bottom: 40px; 
 	top: 0; 
 	padding: 70px 40px 40px 40px; 
-	width: 30%; 
+	width: 0; 
 	z-index: 5000; 
+	-webkit-transition: 1s; -moz-transition: 1s; -o-transition: 1s;
 }
 #artist_info h3 { 
 	font-size: 30px; 
@@ -117,7 +121,8 @@ td {
 	border-bottom: 2px solid #666; 
 }
 #results { 
-	margin-bottom: 40px; 
+	margin-bottom: 40px;
+	-webkit-transition: 1s; -moz-transition: 1s; -o-transition: 1s;
 }
 #multi_results { 
 	background-color: #37474F; 
@@ -127,9 +132,10 @@ td {
 	bottom: 0; 
 	top: 0; 
 	padding: 70px 40px 40px 40px; 
-	width: 30%; 
+	width: 0; 
 	z-index: 5000; 
 	overflow-y: scroll; 
+	-webkit-transition: 1s; -moz-transition: 1s; -o-transition: 1s;
 }
 #multi_results img { 
 	width: 10%; 
@@ -156,6 +162,7 @@ td {
 	top: 0.7em; 
 	right: 0.7em; 
 	z-index: 6000; 
+	-webkit-transition: 1s; -moz-transition: 1s; -o-transition: 1s;
 }
 #play_buttons { 
 	text-align: right; 
@@ -171,6 +178,7 @@ td {
 	border-radius: 15px; 
 	width: 22.2em; 
 	line-height: 2em;
+	-webkit-transition: 1s; -moz-transition: 1s; -o-transition: 1s;
 }
 .album_art { 
 	height: 300px; 
