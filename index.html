@@ -5,7 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
 		<title>Muzak - Music the quick and easy way</title>
-		<!--<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />-->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link href='//fonts.googleapis.com/css?family=Roboto|Luckiest+Guy' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,16 +17,18 @@
 			<header>
 				<h1>Muzak</h1>
 				<p>Listen to preview tracks from your favorite artists using <a href="https://www.spotify.com" target="_blank">Spotify</a> and artist information from <a href="https://www.spotify.com" target="_blank">Discogs</a>.</p>
-				<i class="fa fa-info-circle" aria-hidden="true" ng-click="showInfo()"></i>
+				<i class="fa fa-info-circle" aria-hidden="true" ng-click="showInfo()" ng-show="showInfoIcon"></i>
 			</header>
 			<section class="col-xs-12 col-md-8">
 				<div id="search_form" class="input-group">
-					<input type="text" placeholder="Search for something?!" class="form-control" id="search" ng-model="artistName" />
-					<span class="input-group-btn">
-						<button type="button" id="submit" type="submit" class="btn btn-default" ng-click="sendArtistData(artistName)" ng-init="enterKeyPress()"><span class="glyphicon glyphicon-search"></span></button>
-					</span>			
+					<form ng-submit="sendArtistData(currentArtistName)">
+						<input type="text" placeholder="Search for something?!" class="form-control" id="search" ng-model="currentArtistName" />
+						<span class="input-group-btn">
+							<button type="submit" id="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</form>		
 				</div>
-				<div id="results">
+				<div id="results" ng-show="showSearchResults">
 					<h2>Top Songs</h2>
 					<table>
 						<tr class="tracks" ng-repeat="item in tracks_list">
@@ -36,16 +37,16 @@
 						</tr>
 					</table>
 				</div>
-				<div id="multi_results">
+				<div id="multi_results" ng-show="showArtistSearchResults">
 					<h3>Search Results</h3>
 					<ul><!-- need to replace src with value before search is ran -->
-						<li ng-repeat="item in artist_list" ng-click="newArtistSearch()"><img src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
+						<li ng-repeat="item in artist_list" ng-click="multipleResultsFindArtist()"><img src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
 					</ul>
 				</div>
 			</section>
 			<aside id="album_player_section" class="col-xs-12 col-md-4">
 				<audio-player></audio-player>
-				<div id="artist_info">
+				<div id="artist_info" ng-show="showArtistInfo">
 					<h3>{{ name }}</h3>
 					<img src="#" alt="{{ artistName }} Thumbnail"  />
 					<p><a href="{{ bio }}" target="_blank">{{ artistName }} Profile from Discogs</a></p>
@@ -58,9 +59,6 @@
 				<small>&copy;2016 <a href="http://www.meinnovation.net" target="_blank">ME Innovation</a></small>
 			</footer>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-		<script defer src="js/bootstrap.min.js"></script>
 		<script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 		<script defer src="js/app.js"></script>
 	</body>

@@ -2,16 +2,16 @@
 	<audio id="music" controls>
 		<source src="#" type="audio/mpeg">
 	</audio>
-	<div id="audioPlayer">
+	<div id="audioPlayer" ng-show="showAudioPlayer">
 		<img class="album_art" src="#" alt="" />
 		<div id="song_name_display"></div>
 			<div id="controls_wrap">
 				<div id="audio_controls">
-					<i class='fa fa-play control_button' ng-click="replaySongs()"></i>
-					<i class='fa fa-pause control_button' ng-click="pauseSongs()"></i>
+					<i class='fa fa-play control_button' ng-click="replaySongs()" ng-class="{ 'active': activePlay }"></i>
+					<i class='fa fa-pause control_button' ng-click="pauseSongs()" ng-class="{ 'active': activePause }"></i>
 				</div>
 			</div>
-		<div id="mobile_back" ng-click="hidePlayer()">
+		<div id="mobile_back" ng-click="hidePlayer()" ng-show="mobileBack">
 			<p>Back to results</p>
 		</div>
 	</div>
