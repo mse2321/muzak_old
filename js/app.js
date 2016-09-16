@@ -67,6 +67,7 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Uses Spotify to find artist id. If there are multiple results a div will pop up. If not than it skips that step
 	$scope.findArtist =  function(artistName) {			
 		artist(artistName).success(function (results) {
+			console.log(results);
 		  	$scope.artist_list = results.artists.items;
 		  	$scope.currentArtistId = $scope.artist_list[0].id;
 		  	$scope.artist_list_length = $scope.artist_list.length;
@@ -119,7 +120,7 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	$scope.multipleResultsFindArtist = function(){
 		$scope.newArtistName = this.item.name;
 		$scope.newArtistId = this.item.id;
-		document.getElementById("search").innerHTML = $scope.newArtistName;
+		document.getElementByTagName("search").innerHTML = $scope.newArtistName;
 		$scope.getSongs($scope.newArtistId);
 		$scope.findArtistInfo($scope.newArtistName);
 		$scope.showSearchResults = true;
@@ -203,9 +204,9 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Sets the audioPlayer directive for easy future use
 demo.directive("audioPlayer", function() {
 	return {
-		templateUrl: "audioPlayer.html",
+		templateUrl: "audio_player.html",
 		restrict: "E",
 		scope: true,
 		transclude: true
 	}
-});
+})

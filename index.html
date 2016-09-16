@@ -9,8 +9,9 @@
 		<link href='//fonts.googleapis.com/css?family=Roboto|Luckiest+Guy' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script defer src="js/app.js"></script>
 	</head>
 	<body ng-app="demo" ng-controller="ctrl">
 		<div class="container col-xs-12" id="content_wrap">
@@ -39,7 +40,7 @@
 				</div>
 				<div id="multi_results" ng-show="showArtistSearchResults">
 					<h3>Search Results</h3>
-					<ul><!-- need to replace src with value before search is ran -->
+					<ul>
 						<li ng-repeat="item in artist_list" ng-click="multipleResultsFindArtist()"><img class="artist_thumbs" src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
 					</ul>
 				</div>
@@ -59,7 +60,5 @@
 				<small>&copy;2016 <a href="http://www.meinnovation.net" target="_blank">ME Innovation</a></small>
 			</footer>
 		</div>
-		<script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-		<script defer src="js/app.js"></script>
 	</body>
 </html>	
