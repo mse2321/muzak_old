@@ -115,12 +115,13 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	$scope.multipleResults = function() {
 		$scope.showArtistSearchResults = true;
 		document.querySelector("#multi_results").style.width = "30%";
+
 	};
 // Goes back to Spotify to find the artist ID for whatever artist the user selects from the listing
 	$scope.multipleResultsFindArtist = function(){
 		$scope.newArtistName = this.item.name;
 		$scope.newArtistId = this.item.id;
-		document.getElementByTagName("search").innerHTML = $scope.newArtistName;
+		document.getElementsByTagName("search").innerHTML = $scope.newArtistName;
 		$scope.getSongs($scope.newArtistId);
 		$scope.findArtistInfo($scope.newArtistName);
 		$scope.showSearchResults = true;
