@@ -254,7 +254,7 @@ footer {
 	}
 	#album_player_section { 
 		padding-left: 0; 
-		position: absolute; 
+		position: fixed; 
 		top: 0; 
 		left: 0; 
 		right: 0; 
@@ -296,6 +296,10 @@ footer {
 	}
 	audio { 
 		width: 90%; 
+	}
+	#multi_results img { 
+		width: 40%; 
+		margin: 5px 0; 
 	}
 	#multi_results, #artist_info { 
 		width: 100%; 
