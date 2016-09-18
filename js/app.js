@@ -114,8 +114,12 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Displays multiple results
 	$scope.multipleResults = function() {
 		$scope.showArtistSearchResults = true;
-		document.querySelector("#multi_results").style.width = "30%";
 
+		if (window.innerWidth < 1099 || window.innerHeight < 500 ) {
+			document.querySelector("#multi_results").style.width = "100%";
+		} else {
+			document.querySelector("#multi_results").style.width = "30%";
+		}
 	};
 // Goes back to Spotify to find the artist ID for whatever artist the user selects from the listing
 	$scope.multipleResultsFindArtist = function(){
@@ -139,7 +143,12 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Displays the aside
 	$scope.showInfo = function() {
 		$scope.showArtistInfo = !$scope.showArtistInfo;
-		document.querySelector("#artist_info").style.width = "30%";
+		if (window.innerWidth < 1099 || window.innerHeight < 500 ) {
+			document.querySelector("#artist_info").style.width = "100%";
+		} else {
+			document.querySelector("#artist_info").style.width = "30%";
+		}
+
 	};
 // Displays the custom audio player
 	$scope.showPlayer = function() {
