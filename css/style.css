@@ -8,8 +8,7 @@ body {
 	color: white;
 	font-family: 'Roboto', sans-serif;
 	z-index: 0; 
-	min-height: 100%; 
-	overflow-x: scroll;
+	min-height: 100%;
 }
 h1 { 
 	color: #8E24AA;
@@ -374,7 +373,9 @@ footer {
 	#artist_info { 
 		position: absolute; 
 		text-align: center; 
-		height: 900px; 
+		height: 700px; 
+		overflow-x: scroll;
+		overflow-y: hidden;
 	}
 }
 
