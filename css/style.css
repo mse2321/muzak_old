@@ -374,8 +374,8 @@ footer {
 		position: absolute; 
 		text-align: center; 
 		height: 700px; 
-		overflow-x: scroll;
-		overflow-y: hidden;
+		overflow-y: scroll;
+		overflow-x: hidden;
 	}
 }
 
