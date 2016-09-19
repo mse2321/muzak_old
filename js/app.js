@@ -144,7 +144,7 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	$scope.showInfo = function() {
 		$scope.showArtistInfo = !$scope.showArtistInfo;
 		if (window.innerWidth < 1099 || window.innerHeight < 500 ) {
-			document.querySelector("#artist_info").style.width = "100%";
+			document.querySelector("#artist_info").style.width = "80%";
 		} else {
 			document.querySelector("#artist_info").style.width = "30%";
 		}
