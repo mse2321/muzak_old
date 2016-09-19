@@ -9,6 +9,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	z-index: 0; 
 	min-height: 100%; 
+	overflow-x: scroll;
 }
 h1 { 
 	color: #8E24AA;
@@ -306,7 +307,8 @@ footer {
 	}
 	#artist_info { 
 		position: absolute; 
-		text-align: center;
+		text-align: center; 
+		height: 900px; 
 		width: 100%;
 	}
 	#mobile_back { 
@@ -372,6 +374,7 @@ footer {
 	#artist_info { 
 		position: absolute; 
 		text-align: center; 
+		height: 900px; 
 	}
 }
 
