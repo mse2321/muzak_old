@@ -308,7 +308,7 @@ footer {
 		position: absolute; 
 		text-align: center; 
 		height: 900px; 
-		width: 100%;
+		width: 80%;
 	}
 	#mobile_back { 
 		display: block; 
@@ -373,9 +373,7 @@ footer {
 	#artist_info { 
 		position: absolute; 
 		text-align: center; 
-		height: 700px; 
-		overflow-y: scroll;
-		overflow-x: hidden;
+		height: 700px;
 	}
 }
 
