@@ -58,11 +58,21 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	$scope.mobileBack = false;
 	$scope.activePlay = false;
 	$scope.activePause = false;
+	$scope.artistInfoWidth = "0";
+	$scope.multiResultsWidth = "0";
+	$scope.sectionOpacity = "1";
+	$scope.headerPadding = "padding-top: 20px;";
+	$scope.audioSource = "#";
+	$scope.artistImageSource = "#";
+	$scope.albumImageSource = "#";
+	$scope.albumSongInfo = "#";
+	$scope.songName = "DEMO";
+	$scope.albumName = "DEMO";
+	$scope.screenSizeCheck = window.innerWidth < 1099 || window.innerHeight < 500;
 
 // Grabs the artist Name from the search bar
 	$scope.sendArtistData = function(currentArtistName) {
-		$scope.currentArtistName = currentArtistName;
-		$scope.findArtist($scope.currentArtistName);
+		$scope.findArtist(currentArtistName);
 	};
 // Uses Spotify to find artist id. If there are multiple results a div will pop up. If not than it skips that step
 	$scope.findArtist =  function(artistName) {			
@@ -87,24 +97,25 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 		artistInfo(artistName).success(function (artistInfo_results) {
 		  	$scope.artistNames = [];
 		  	$scope.result_length = artistInfo_results.results.length;
+		  	$scope.artistNameData = artistInfo_results.results[i].title;
+		  	$scope.artistId = artistInfo_results.results[i].id;
 		  	for(i = 0; i < $scope.result_length; i++) {
 		  		$scope.paren = artistInfo_results.results[i].title.indexOf("(");
 		  		$scope.artistNames_item = {
-		  			name: artistInfo_results.results[i].title,
-		  			id: artistInfo_results.results[i].id
+		  			name: $scope.artistNameData,
+		  			id: $scope.artistId
 		  		};
 		  		if($scope.paren != -1) {
 			  		$scope.artistNames_item = {
-			  			name: artistInfo_results.results[i].title.slice(0, -4),
-			  			id: artistInfo_results.results[i].id
+			  			name: $scope.artistNameData.slice(0, -4),
+			  			id: $scope.artistId
 			  		};
-		  			$scope.artistNames.push($scope.artistNames_item);
-		  		} else {
-		  			$scope.artistNames.push($scope.artistNames_item);
-		  		};
+		  		}
+		  		$scope.artistNames.push($scope.artistNames_item);
+
 		  		if (artistName === $scope.artistNames[i].name) {
                     $scope.newId = $scope.artistNames[i].id;
-                    document.querySelector("#artist_info img").setAttribute("src", artistInfo_results.results[i].thumb);
+                  	$scope.artistImageSource = artistInfo_results.results[i].thumb;
                     $scope.getArtistInfo($scope.newId);
                     break;
 				};
@@ -115,17 +126,16 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 	$scope.multipleResults = function() {
 		$scope.showArtistSearchResults = true;
 
-		if (window.innerWidth < 1099 || window.innerHeight < 500 ) {
-			document.querySelector("#multi_results").style.width = "100%";
+		if ($scope.screenSizeCheck) {
+			$scope.multiResultsWidth = "100%";
 		} else {
-			document.querySelector("#multi_results").style.width = "30%";
+			$scope.multiResultsWidth = "30%";
 		}
 	};
 // Goes back to Spotify to find the artist ID for whatever artist the user selects from the listing
 	$scope.multipleResultsFindArtist = function(){
 		$scope.newArtistName = this.item.name;
 		$scope.newArtistId = this.item.id;
-		document.getElementsByTagName("search").innerHTML = $scope.newArtistName;
 		$scope.getSongs($scope.newArtistId);
 		$scope.findArtistInfo($scope.newArtistName);
 		$scope.showSearchResults = true;
@@ -143,29 +153,28 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Displays the aside
 	$scope.showInfo = function() {
 		$scope.showArtistInfo = !$scope.showArtistInfo;
-		if (window.innerWidth < 1099 || window.innerHeight < 500 ) {
-			document.querySelector("#artist_info").style.width = "80%";
+		if ($scope.screenSizeCheck) {
+			$scope.artistInfoWidth = "80%";
 		} else {
-			document.querySelector("#artist_info").style.width = "30%";
+			$scope.artistInfoWidth = "30%";
 		}
-
 	};
 // Displays the custom audio player
 	$scope.showPlayer = function() {
-		if ( window.innerWidth < 1099 || window.innerHeight < 500 ) {
+		if ($scope.screenSizeCheck) {
 			$scope.showAudioPlayer = true;
 			$scope.mobileBack = true;
-			document.querySelector("section").style.opacity = "0.2";
+			$scope.sectionOpacity = "0.2";
 		}
-		document.querySelector("header").style.padding = "20px 20px 0px 20px";
+		$scope.headerPadding = "padding: 20px 20px 0px 20px;";
 	};
 // Hides the player
 	$scope.hidePlayer = function() {
-		if ( window.innerWidth < 1099 || window.innerHeight < 500 ) {
+		if ($scope.screenSizeCheck) {
 			$scope.showAudioPlayer = false;
-			document.querySelector("section").style.opacity = "1";
+			$scope.sectionOpacity = "1";
 		}
-		document.querySelector("header").style.padding = "20px";
+		$scope.headerPadding = "padding: 20px;";
 		document.querySelector("#music").pause();
 	};
 // Retrieves songs from Spotify based on artist ID and pushes into array of tracks
@@ -188,10 +197,11 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Plays the selected song and locates it in the tracks array
 	$scope.playSongs = function(id) {
 		$scope.itemNumber = id;
-		document.querySelector("source").setAttribute("src", $scope.tracks_list[$scope.itemNumber].track_url);
-		document.querySelector(".album_art").setAttribute("src", $scope.tracks_list[$scope.itemNumber].albumArt);
-		document.querySelector("#song_name_display").innerHTML = "<p>" + $scope.tracks_list[$scope.itemNumber].name + "</p><p class='album'>" + $scope.tracks_list[$scope.itemNumber].albumName + "</p>";
-		document.querySelector("audio").load();
+		$scope.audioSource = $scope.tracks_list[$scope.itemNumber].track_url;
+		$scope.albumImageSource = $scope.tracks_list[$scope.itemNumber].albumArt;
+		$scope.songName = $scope.tracks_list[$scope.itemNumber].name;
+		$scope.albumName = $scope.tracks_list[$scope.itemNumber].albumName;
+		document.querySelector("#music").load();
 		$scope.showAudioPlayer = true;
 		document.querySelector("#music").play();
 		$scope.activePlay = true;

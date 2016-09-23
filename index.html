@@ -15,15 +15,15 @@
 	</head>
 	<body ng-app="demo" ng-controller="ctrl">
 		<div class="container col-xs-12" id="content_wrap">
-			<header>
+			<header style="{{ headerPadding }}">
 				<h1>Muzak</h1>
 				<p>Listen to preview tracks from your favorite artists using <a href="https://www.spotify.com" target="_blank">Spotify</a> and artist information from <a href="https://www.spotify.com" target="_blank">Discogs</a>.</p>
 				<i class="fa fa-info-circle" aria-hidden="true" ng-click="showInfo()" ng-show="showInfoIcon"></i>
 			</header>
-			<section class="col-xs-12 col-md-8">
+			<section class="col-xs-12 col-md-8" style="opacity: {{ sectionOpacity }};">
 				<div id="search_form" class="input-group">
 					<form ng-submit="sendArtistData(currentArtistName)">
-						<input type="text" placeholder="Search for something?!" class="form-control" id="search" ng-model="currentArtistName" />
+						<input type="text" placeholder="Search for something?!" class="form-control" id="search" ng-model="currentArtistName" value="currentArtistName" />
 						<span class="input-group-btn">
 							<button type="submit" id="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 						</span>
@@ -34,11 +34,11 @@
 					<table>
 						<tr class="tracks" ng-repeat="item in tracks_list">
 							<td>{{ item.name }}</td>
-							<td ng-click="playSongs(item.id); showPlayer()" id="play_buttons"><i class='fa fa-play-circle'></i></td>
+							<td ng-click="playSongs(item.id); showPlayer();" id="play_buttons"><i class='fa fa-play-circle'></i></td>
 						</tr>
 					</table>
 				</div>
-				<div id="multi_results" ng-show="showArtistSearchResults">
+				<div id="multi_results" ng-show="showArtistSearchResults" style="width: {{ multiResultsWidth }};">
 					<h3>Search Results</h3>
 					<ul>
 						<li ng-repeat="item in artist_list" ng-click="multipleResultsFindArtist()"><img class="artist_thumbs" ng-src="{{ item.images[0].url }}" ng-if="item.images[0].url != null" alt="{{ artistName }} Thumbnail"  />&nbsp;&nbsp;{{ item.name }}</li>
@@ -47,9 +47,9 @@
 			</section>
 			<aside id="album_player_section" class="col-xs-12 col-md-4">
 				<audio-player></audio-player>
-				<div id="artist_info" ng-show="showArtistInfo">
+				<div id="artist_info" ng-show="showArtistInfo" style="width: {{ artistInfoWidth }};">
 					<h3>{{ name }}</h3>
-					<img src="#" alt="{{ artistName }} Thumbnail"  />
+					<img ng-src="{{ artistImageSource }}" alt="{{ artistName }} Thumbnail"  />
 					<p><a href="{{ bio }}" target="_blank">{{ artistName }} Profile from Discogs</a></p>
 					<ul>
 						<li ng-repeat="artist_url in artist_urls"><a href="{{ artist_url }}">{{ artist_url }}</a></li>

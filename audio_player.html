@@ -1,10 +1,13 @@
 <div id="audioPlayer_wrap">
 	<audio id="music" controls>
-		<source src="#" type="audio/mpeg">
+		<source ng-src="{{ audioSource }}" type="audio/mpeg">
 	</audio>
 	<div id="audioPlayer" ng-show="showAudioPlayer">
-		<img class="album_art" src="#" alt="" />
-		<div id="song_name_display"></div>
+		<img class="album_art" ng-src="{{ albumImageSource }}" alt="" />
+		<div id="song_name_display">
+			<p>{{ songName }}</p>
+			<p class='album'>{{ albumName }}</p>
+		</div>
 			<div id="controls_wrap">
 				<div id="audio_controls">
 					<i class='fa fa-play control_button' ng-click="replaySongs()" ng-class="{ 'active': activePlay }"></i>

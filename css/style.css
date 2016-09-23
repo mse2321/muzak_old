@@ -34,7 +34,6 @@ a {
 }
 header { 
 	margin-bottom: 4em;
-	padding-top: 20px; 
 }
 section { 
 	margin-bottom: 2em; 
@@ -77,7 +76,6 @@ audio {
 	bottom: 40px; 
 	top: 0; 
 	padding: 70px 40px 40px 40px; 
-	width: 0; 
 	z-index: 5000; 
 	-webkit-transition: 1s; -moz-transition: 1s; -o-transition: 1s;
 }
@@ -132,7 +130,6 @@ td {
 	bottom: 0; 
 	top: 0; 
 	padding: 70px 40px 40px 40px; 
-	width: 0; 
 	z-index: 5000; 
 	overflow-y: scroll; 
 	-webkit-transition: 1s; -moz-transition: 1s; -o-transition: 1s;
