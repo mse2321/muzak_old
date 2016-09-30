@@ -48,7 +48,7 @@ demo.factory("info", function($http){
 	};
 }); // end of songs
 
-demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
+demo.controller("ctrl", function($scope, artist, songs, artistInfo, info, $sce){
 // Variables used with ng-show
 	$scope.showAudioPlayer = false;
 	$scope.showSearchResults = false;
@@ -197,7 +197,7 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info){
 // Plays the selected song and locates it in the tracks array
 	$scope.playSongs = function(id) {
 		$scope.itemNumber = id;
-		$scope.audioSource = $scope.tracks_list[$scope.itemNumber].track_url;
+		$scope.audioSource = $sce.trustAsResourceUrl($scope.tracks_list[$scope.itemNumber].track_url); // Need to pass url from Spotify as a trusted url, otherwise it throws an error
 		$scope.albumImageSource = $scope.tracks_list[$scope.itemNumber].albumArt;
 		$scope.songName = $scope.tracks_list[$scope.itemNumber].name;
 		$scope.albumName = $scope.tracks_list[$scope.itemNumber].albumName;
