@@ -20,7 +20,11 @@
 				<p>Listen to preview tracks from your favorite artists using <a href="https://www.spotify.com" target="_blank">Spotify</a> and artist information from <a href="https://www.discogs.com/" target="_blank">Discogs</a>.</p>
 				<i class="fa fa-info-circle" aria-hidden="true" ng-click="showInfo()" ng-show="showInfoIcon"></i>
 			</header>
-			<section class="col-xs-12 col-md-8" style="opacity: {{ sectionOpacity }};">
+			<section class="maintenance">
+				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+				This application is currently down for maintenance.
+			</section>
+			<section class="col-xs-12 col-md-8 searchContainer" style="opacity: {{ sectionOpacity }};">
 				<div id="search_form" class="input-group">
 					<form ng-submit="sendArtistData(currentArtistName)">
 						<input type="text" placeholder="Search for something?!" class="form-control" id="search" ng-model="currentArtistName" value="currentArtistName" />
