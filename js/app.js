@@ -77,7 +77,6 @@ demo.controller("ctrl", function($scope, artist, songs, artistInfo, info, $sce){
 // Uses Spotify to find artist id. If there are multiple results a div will pop up. If not than it skips that step
 	$scope.findArtist =  function(artistName) {			
 		artist(artistName).success(function (results) {
-			console.log(results);
 		  	$scope.artist_list = results.artists.items;
 		  	$scope.currentArtistId = $scope.artist_list[0].id;
 		  	$scope.artist_list_length = $scope.artist_list.length;
