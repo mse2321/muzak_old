@@ -1,0 +1,159 @@
+.tracks { 
+	border-top: 2px solid #666; 
+	border-bottom: 2px solid #666; 
+}
+#results { 
+	margin-bottom: 60px;
+	transition: 1s;
+}
+#multi_results { 
+	background-color: #37474F; 
+	color: white; 
+	position: fixed; 
+	left: 0; 
+	bottom: 0; 
+	top: 0; 
+	padding: 70px 40px 40px 40px; 
+	z-index: 5000; 
+	overflow-y: scroll; 
+	transition: 1s;
+}
+#multi_results img { 
+	width: 10%; 
+	margin: 5px 0; 
+}
+#multi_results li { 
+	cursor: pointer; 
+	font-size: 20px; 
+	color: #26C6DA; 
+}
+#multi_results li:hover { 
+	color: white; 
+}
+.fa-play-circle { 
+	font-size: 2em; 
+	color: #26C6DA; 
+	cursor: pointer; 
+	z-index: 1000; 
+}
+.fa-info-circle { 
+	position: absolute; 
+	font-size: 3em; 
+	cursor: pointer; 
+	top: 0.7em; 
+	right: 0.7em; 
+	z-index: 6000; 
+	transition: 1s;
+}
+#play_buttons { 
+	text-align: right; 
+}
+#song_name_display { 
+	background-color: black; 
+	padding: 5px; 
+	margin: 10px 0; 
+	font-size: 20px; 
+}
+#song_name_display p { 
+	padding: 0; 
+	margin: 0; 
+	font-family: 'Roboto', sans-serif; 
+}
+#controls_wrap { 
+	background: linear-gradient(#9e9e9e, #fafafa, #9e9e9e); 
+	padding: 10px; 
+	border-radius: 0 0 10px 10px; 
+}
+.control_button { 
+	padding: 0 30px; 
+	color: black; 
+	font-size: 30px; 
+	cursor: pointer; 
+}
+.control_button:hover { 
+	color: #26C6DA; 
+}
+.active { 
+	color: #8E24AA; 
+}
+#mobile_back { 
+	display: none; cursor: pointer; background-color: #8E24AA; 
+}
+footer { 
+	clear: both; 
+	position: fixed; 
+	bottom: 0; 
+	color: #ccc; 
+	padding: 10px 0 10px 16px; 
+	left: 0; 
+	background-color: #263238; 
+	width: 100%; 
+}
+
+@media (max-width: 989px) {
+	#content_wrap { 
+		padding: 0; 
+	}
+	section { 
+		margin-bottom: 0; 
+	}
+	.input-group, tr, td { 
+		width: 100%; 
+	}
+	#audioPlayer_wrap { 
+		width: 80%; 
+	}
+	#audioPlayer { 
+		margin-top: 0; 
+		width: 100%; 
+		border: none; 
+		border-top: 5px solid #616161; 
+		background-color: #263238; 
+		width: 100%; 
+		position: fixed;
+		top: 0; 
+		left: 0; 
+		right: 0; 
+	}
+	#controls_wrap, .album_art, #audioPlayer { 
+		border-radius: 0; 
+	}
+	#album_player_section { 
+		padding-left: 0; 
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		right: 0; 
+		z-index: 2000; 
+		padding-top: 100px; 
+	}
+	#song_name_display { 
+		padding: 10px; 
+		margin: 5px 0; 
+	}
+	.album_art { 
+		width: 60%; 
+		background-color: #ccc; 
+		height: 60%; 
+	}
+	audio { 
+		width: 90%; 
+	}
+	#multi_results img { 
+		width: 40%; 
+		margin: 5px 0; 
+	}
+	#multi_results, #artist_info { 
+		width: 100%; 
+	}
+
+	#mobile_back { 
+		display: block; 
+	}
+	#mobile_back p { 
+		margin: 0; 
+	}
+	#mobile_back p:hover { 
+		color: #26C6DA; 
+	}
+}

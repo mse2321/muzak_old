@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a, a:active, a:focus, a:hover { text-decoration: none; }
+
+body { 
+	font-family: $font-family-body; 
+	color: $white; 
+	margin: 0; 
+	font-size: $font-size-body;
+	background: url("../../images/music_bg_fotolia.jpg") no-repeat center center fixed; background-size: cover;
+	z-index: 0; 
+	min-height: 100%;
+}
+
+h1 { 
+	color: #8E24AA;
+	font-family: 'Luckiest Guy',
+	Arial, sans-serif;
+	font-size: 4em;
+	margin: 0; 
+}
+h2 { 
+	color: #ccc; 
+}
+ul { 
+	padding: 0; 
+	margin: 0; 
+}
+li { 
+	list-style-type: none; 
+}
+a { 
+	cursor: pointer; 
+	color: #26C6DA; 
+}
+header { 
+	margin-bottom: 4em;
+}
+section { 
+	margin-bottom: 2em; 
+	float: left; 
+}
+form {
+	display: table;
+}
+
+.maintenance {
+	display: block;
+	background-color: black;
+	color: white;
+	position: absolute;
+	top: 12%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding-top: 10%;
+	text-align: center;
+	font-size: 1.5em;
+	color: yellow;
+	opacity: 0.7;
+}
+.fa-exclamation-triangle {
+	display: block;
+	font-size: 5em;
+	margin-bottom: 0.5em;
+}
+
+.hidden { 
+	display: none; 
+}
+
+#content_wrap { 
+	padding: 0 2em; 
+	background-color: rgba(0, 0, 0, 0.6); 
+	position: absolute; 
+	top: 0; 
+	bottom: inherit; 
+	right: 0; 
+	left: 0;  
+	z-index: 500; 
+	min-height: 100%; 
+}
+
+small { 
+	color: #bbb; 
+}
+table { 
+	width: 60%; 
+	background-color: rgba(100, 100, 100, 0.2); 
+}
+td { 
+	padding: 1em; 
+	text-align: left; 
+}

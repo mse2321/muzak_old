@@ -1,0 +1,59 @@
+audio { 
+	display: none; 
+}
+#artist_info { 
+	background-color: #37474F; 
+	color: white; 
+	position: fixed; 
+	right: 0; 
+	bottom: 40px; 
+	top: 0; 
+	padding: 70px 40px 40px 40px; 
+	z-index: 5000; 
+	transition: 1s;
+}
+#artist_info h3 { 
+	font-size: 30px; 
+	font-weight: bold; 
+}
+#artist_info img { 
+	margin: 30px 0 20px 0; 
+	border-radius: 150px; 
+}
+#artist_info p { 
+	margin-bottom: 30px; 
+}
+#artist_info li { 
+	margin: 10px 0; 
+}
+#artist_info a:hover { 
+	color: white; 
+}
+.album { 
+	color: #26C6DA; 
+	font-size: 16px; 
+}
+.tracks:hover { 
+	background-color: #8E24AA; 
+} 
+
+#audioPlayer_wrap { 
+	margin: 0 auto 1em auto; 
+	text-align: center; 
+}
+#audioPlayer { 
+	background-color: #777; 
+	border: 5px solid #ccc; 
+	color: white; 
+	border-radius: 15px; 
+	width: 22.2em; 
+	line-height: 2em;
+	transition: 1s;
+	display: none;
+}
+.album_art { 
+	height: 300px; 
+	width: 300px; 
+	background-color: #8E24AA; 
+	border-radius: 10px 10px 0 0; 
+}

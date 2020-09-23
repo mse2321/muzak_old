@@ -1,0 +1,11 @@
+header {
+    padding-top: $base-unit * 2;
+
+    h1 {
+        font-size: $base-unit * 4;
+    }
+    p {
+        font-size: $base-unit;
+        margin-left: 0; 
+    }
+}

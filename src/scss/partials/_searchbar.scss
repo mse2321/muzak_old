@@ -1,0 +1,14 @@
+#search_form { 
+	margin-bottom: 3em; 
+}
+.input-group { 
+	width: 60%; 
+	button {
+		span {
+			font-size: $base-unit * 2;
+		}
+	}
+}
+.searchContainer {
+	display: none;
+}
