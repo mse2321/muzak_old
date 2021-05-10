@@ -1,3 +1,5 @@
+*** UPDATE - due to changes with Spotify's and Discogs's APIs, this app no longer works. I'm working on a newer version now. ***
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # muzak
